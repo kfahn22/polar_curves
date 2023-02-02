@@ -4,14 +4,7 @@
 
 // Resources for butterfly equations
 // Paul Bourke.net (also has 3d version)
-// let u = a * 24 * PI / N;
-// x = cos(u)*(pow(e, cos(u)) - 2 * cos(4*u) - pow(sin(u/12), 5)
-// y = sin(u)*(pow(e, cos(u)) - 2 * cos(4*u) - pow(sin(u/12), 5)
-// https://mathworld.wolfram.com/topics/PlaneCurves.html
-// jwilson.coe.jga.edu
-// r = pow(cos(5*theta), 2) + sin(3*theta) + 0.3
-// r = sin(theta) + pow(sin(5/2*theta),3)
-// paulmasson.github.io
+
 
 
 // http://paulbourke.net/geometry/chrysanthemum/
@@ -19,33 +12,11 @@
 //r = 5 (1 + sin(11 u / 5)) - 4 sin4(17 u / 3) sin8(2 cos(3 u) - 28 u)  . . . where 0 <= u <= 21 pi
 // and in Cartesian coordinates
 
-// x = r cos(u)
-// y = r sin(u)
-// from http://paulbourke.net/geometry/butterfly/
-// int main(int argc,char **argv)
-// {
-//    int i;
-//    double u;
-//    XYZ p,plast;
 
-//    for (i=0;i<N;i++) {
-//       u = i * 24.0 * PI / N;
-//       p.x = cos(u) * (exp(cos(u)) - 2 * cos(4 * u) - pow(sin(u / 12),5.0));
-//       p.y = sin(u) * (exp(cos(u)) - 2 * cos(4 * u) - pow(sin(u / 12),5.0));
-//       p.z = fabs(p.y) / 2;
-//       colour = GetColour(u,0.0,24*PI,4);
-//       if (i > 0) {
-//          Do something with the line from plast to p
-//       }
-//       plast = p;
-//    }
-// }
-
-const butterfly = [];
+const flower = [];
 let a = 0;
 const Y_AXIS = 1;
 const X_AXIS = 2;
-const e = 2.71828;
 
 function setup() {
   createCanvas(800, 450);
@@ -61,20 +32,20 @@ function draw() {
   noFill();
  
   // Equations for butterfly curve
-  let sc = 50;
-  let r = pow(e, sin(a)) - 2 * cos(4 * a) + pow(sin((2 * a - PI) / 24), 5);
+  let sc = 10;
+  let r = 5 * (1 +sin(11 * a / 5)) - 4 * pow(sin(17 * a / 3), 4) + pow(sin(2 *cos(3 * a) - 28 * a), 8)
   const x = sc * r * cos(a);
   const y = -sc * r * sin(a);
-  butterfly.push(createVector(x, y));
+  flower.push(createVector(x, y));
 
   // So that it stops
-  if (a > 8 * PI) {
+  if (a > 21 * PI) {
     noLoop();
   }
   
   beginShape();
-  for (let v of butterfly) {
-    strokeWeight(2);
+  for (let v of flower) {
+    strokeWeight(1);
     stroke(255);
     vertex(v.x, v.y);
   }
@@ -83,7 +54,7 @@ function draw() {
 }
 
 function mousePressed() {
-  save('butterfly_curve.jpg');
+  save('chysanthemum.jpg');
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {

@@ -14,6 +14,7 @@
 
 
 const flower = [];
+const d = [];
 let a = 0;
 const Y_AXIS = 1;
 const X_AXIS = 2;
@@ -28,7 +29,7 @@ function draw() {
   let c2 = color('#324998');
   let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
   
-  translate(width / 2, height * 4.5/8);
+  translate(width / 2, height /2);
   noFill();
  
   // Equations for butterfly curve
@@ -47,6 +48,9 @@ function draw() {
   for (let v of flower) {
     strokeWeight(1);
     stroke(255);
+    let d = dist(v.x, v.y, 0, 0);
+
+    //let c = map(d, 0, )
     vertex(v.x, v.y);
   }
   endShape();

@@ -20,35 +20,35 @@ const Y_AXIS = 1;
 const X_AXIS = 2;
 const innerRadius = 10;
 const outerRadius = 150;
+//#d980ff //1
+// #c94dff //2
 
+let flowerColors = ['#e8b3ff', '#b300b3', '#660066', '#ba1aff', '#a100e6', '#8f00cc', '#6b0099','#4f2669']
 function setup() {
   createCanvas(800, 450);
 }
 
 function draw() {
-  //background(59);
   
-  let c1 = color('#FECEF1');
-  let c2 = color('#bf1363');
-  let c3 = color(255);
-  let c4 = color('#eec0c6');
-  let c5 = color('#e58c8a');
-  let c6 = color('#91171f');
-  let c7 = color('#ff4d80');
-  let c8 = color('#ff3e41');
-  let c9 = color('#df367c');
-  let c10 = color('#883955');
-  
+  let c1 = color(flowerColors[0]);
+  let c2 = color(flowerColors[1]);
+  let c3 = color(flowerColors[2]);
+  let c4 = color(flowerColors[6]);
+  let c5 = color(flowerColors[4]);
+  let c6 = color(flowerColors[5]);
+  let c7 = color(flowerColors[7]);
+
   //let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
   let gradient = createRadialGradient(innerRadius, outerRadius, width/2, height/2);
   //gradient.colors(0, c1, 0.25, c2, 0.75, c3);
-  gradient.colors(0, c7, 0.2, c8, 0.4, c6, 0.6, c9, 0.8, c10);
+  //gradient.colors(0, c2, 0.2, c3, 0.4, c4, 0.6, c5, 0.8, c6, 0.9, c7);
+  gradient.colors(0, c2, 0.25, c3, 0.35, c4, 0.5, c6, 0.85, c7);
   backgroundGradient(gradient);
   translate(width / 2, height /2);
   noFill();
   
-  // Equations for butterfly curve
-  let sc = 10;
+  // Equations for chrysanthemum curve
+  let sc = 12;
   let r = 5 * (1 +sin(11 * a / 5)) - 4 * pow(sin(17 * a / 3), 4) + pow(sin(2 *cos(3 * a) - 28 * a), 8)
   const x = sc * r * cos(a);
   const y = -sc * r * sin(a);
@@ -61,12 +61,17 @@ function draw() {
   
   beginShape();
   for (let v of flower) {
-    strokeWeight(1);
-    stroke(255);
+    strokeWeight(1.5);
+    stroke(255, 255, 255, 150);
     vertex(v.x, v.y);
   }
   endShape();
   a += 0.01;
+  
+  // let c10 = color(150,45,153,50);
+  // fill(c10)
+  // noStroke();
+  // circle(0,0, 14);
 }
 
 function mousePressed() {

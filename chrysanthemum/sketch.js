@@ -18,20 +18,35 @@ const d = [];
 let a = 0;
 const Y_AXIS = 1;
 const X_AXIS = 2;
+const innerRadius = 10;
+const outerRadius = 150;
 
 function setup() {
   createCanvas(800, 450);
 }
 
 function draw() {
-  background(59);
-  let c1 = color('#FECEF1');
-  let c2 = color('#324998');
-  let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
+  //background(59);
   
+  let c1 = color('#FECEF1');
+  let c2 = color('#bf1363');
+  let c3 = color(255);
+  let c4 = color('#eec0c6');
+  let c5 = color('#e58c8a');
+  let c6 = color('#91171f');
+  let c7 = color('#ff4d80');
+  let c8 = color('#ff3e41');
+  let c9 = color('#df367c');
+  let c10 = color('#883955');
+  
+  //let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
+  let gradient = createRadialGradient(innerRadius, outerRadius, width/2, height/2);
+  //gradient.colors(0, c1, 0.25, c2, 0.75, c3);
+  gradient.colors(0, c7, 0.2, c8, 0.4, c6, 0.6, c9, 0.8, c10);
+  backgroundGradient(gradient);
   translate(width / 2, height /2);
   noFill();
- 
+  
   // Equations for butterfly curve
   let sc = 10;
   let r = 5 * (1 +sin(11 * a / 5)) - 4 * pow(sin(17 * a / 3), 4) + pow(sin(2 *cos(3 * a) - 28 * a), 8)
@@ -48,9 +63,6 @@ function draw() {
   for (let v of flower) {
     strokeWeight(1);
     stroke(255);
-    let d = dist(v.x, v.y, 0, 0);
-
-    //let c = map(d, 0, )
     vertex(v.x, v.y);
   }
   endShape();

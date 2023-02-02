@@ -25,18 +25,15 @@ function setup() {
 
 function draw() {
   background(59);
-  // let c1 = color(146, 83, 161);
-  // let c2 = color(236, 1, 90);
-  // let c3 = color('#F063A4');
-  // let col2 = setGradientL(0, 0, 400, 450, c2, c1, X_AXIS);
-  // let col3 = setGradientR(400, 0, 750, 450, c1, c2, X_AXIS);
-  translate(width / 2, height * 1 / 2);
-  //stroke(255, 255, 255, 50);
-  strokeWeight(1);
+  let c1 = color('#FECEF1');
+  let c2 = color('#324998');
+  let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
+  
+  translate(width / 2, height * 4.5/8);
   noFill();
 
   // Equations for butterfly curve
-  let sc = 40;
+  let sc = 50;
   let r = pow(e, sin(a)) - 2 * cos(4 * a) + pow(sin((2 * a - PI) / 24), 5);
   const x = sc * r * cos(a);
   const y = -sc * r * sin(a);
@@ -46,11 +43,11 @@ function draw() {
   if (a > 8 * PI) {
     noLoop();
   }
-
+  
   beginShape();
   for (let v of butterfly) {
-    let m = map(a, 0, 6*PI, 0, 255);
-    stroke('#9253A1');
+    strokeWeight(2);
+    stroke(255);
     vertex(v.x, v.y);
   }
   endShape();
@@ -58,16 +55,16 @@ function draw() {
 }
 
 function mousePressed() {
-  save('helix.jpg');
+  save('butterfly_curve.jpg');
 }
 
-function setGradientL(x, y, w, h, c1, c2, axis) {
+function setGradient(x, y, w, h, c1, c2, axis) {
   noFill();
 
   if (axis === Y_AXIS) {
     // Top to bottom gradient
     for (let i = y; i <= y + h; i++) {
-      let inter = map(i, y, y + h, 0, 1);
+      let inter = map(i, y, y + h, 0, 0.7);
       let c = lerpColor(c1, c2, inter);
       stroke(c);
       line(x, i, x + w, i);
@@ -76,28 +73,6 @@ function setGradientL(x, y, w, h, c1, c2, axis) {
     // Left to right gradient
     for (let i = x; i <= x + w; i++) {
       let inter = map(i, x, x + w, 0, 1);
-      let c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(i, y, i, y + h);
-    }
-  }
-}
-
-function setGradientR(x, y, w, h, c1, c2, axis) {
-  noFill();
-
-  if (axis === Y_AXIS) {
-    // Top to bottom gradient
-    for (let i = y; i <= y + h; i++) {
-      let inter = map(i, y, y + h, 0.0, 1);
-      let c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(x, i, x + w, i);
-    }
-  } else if (axis === X_AXIS) {
-    // Left to right gradient
-    for (let i = x; i <= x + w; i++) {
-      let inter = map(i, x, x + w, 0, 1.75);
       let c = lerpColor(c1, c2, inter);
       stroke(c);
       line(i, y, i, y + h);

@@ -13,34 +13,6 @@
 // r = sin(theta) + pow(sin(5/2*theta),3)
 // paulmasson.github.io
 
-
-// http://paulbourke.net/geometry/chrysanthemum/
-
-//r = 5 (1 + sin(11 u / 5)) - 4 sin4(17 u / 3) sin8(2 cos(3 u) - 28 u)  . . . where 0 <= u <= 21 pi
-// and in Cartesian coordinates
-
-// x = r cos(u)
-// y = r sin(u)
-// from http://paulbourke.net/geometry/butterfly/
-// int main(int argc,char **argv)
-// {
-//    int i;
-//    double u;
-//    XYZ p,plast;
-
-//    for (i=0;i<N;i++) {
-//       u = i * 24.0 * PI / N;
-//       p.x = cos(u) * (exp(cos(u)) - 2 * cos(4 * u) - pow(sin(u / 12),5.0));
-//       p.y = sin(u) * (exp(cos(u)) - 2 * cos(4 * u) - pow(sin(u / 12),5.0));
-//       p.z = fabs(p.y) / 2;
-//       colour = GetColour(u,0.0,24*PI,4);
-//       if (i > 0) {
-//          Do something with the line from plast to p
-//       }
-//       plast = p;
-//    }
-// }
-
 const butterfly = [];
 let a = 0;
 const Y_AXIS = 1;
@@ -55,11 +27,14 @@ function draw() {
   background(59);
   let c1 = color('#FECEF1');
   let c2 = color('#324998');
-  let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
+  let c3 = color('#F063A4');
+  let col2 = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
   
   translate(width / 2, height * 4.5/8);
+  //stroke(255, 255, 255, 50);
+  strokeWeight(1);
   noFill();
- 
+
   // Equations for butterfly curve
   let sc = 50;
   let r = pow(e, sin(a)) - 2 * cos(4 * a) + pow(sin((2 * a - PI) / 24), 5);

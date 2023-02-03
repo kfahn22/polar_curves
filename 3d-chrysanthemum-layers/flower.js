@@ -6,7 +6,7 @@ class Flower {
         this.px = _px;
         this.py = _py;
         this.h = _h;
-        this.c = color(255, 0, 255);
+        this.c = _c;
         this.points = [];
     }
 
@@ -41,7 +41,7 @@ class Flower {
         for (let v of this.points) {
             //translate(v.x, v.y, v.z);
             //let col = color(this.c);
-            stroke(255, 255, 255, 150);
+            stroke(this.c, 50);
             vertex(v.x, v.y, v.z);
         }
         endShape();

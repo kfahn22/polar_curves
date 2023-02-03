@@ -28,9 +28,10 @@ function setup() {
 
 function draw() {
   background(flowerColors[6]);
-  angleMode(DEGREES);
-  rotateX(angle);
-  angle += 0.01;
+ // angleMode(DEGREES);
+  rotateX(35);
+  rotateZ(angle);
+  angle += 0.001;
   
   noFill();
   

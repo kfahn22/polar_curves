@@ -46,59 +46,39 @@ const butterfly = [];
 const N = 10000;
 const Y_AXIS = 1;
 const X_AXIS = 2;
+let angle = 0;
 let beta = 0;
-let total = 1000;
-let m = 8, n1 = 1, n2 = 1, n3 = 1;
+const p = 1;
+const q = 2;
 const e = 2.71828;
 
 function setup() {
-  createCanvas(800, 450);
+  createCanvas(800, 450, WEBGL);
 }
 
 function draw() {
   background(59);
-  let c1 = color('#FECEF1');
-  let c2 = color('#324998');
-  let col = setGradient(0, 0, 800, 450, c2, c1, Y_AXIS);
-
-  translate(width / 2, height * 4.5 / 8);
+  rotateX(angle);
+  angle += 0.01;
+ // translate(width / 2, height * 4.5 / 8);
   noFill();
-
-  // let r = pow(e, sin(beta)) - 2 * cos(4 * beta) + pow(sin((2 * beta - PI) / 24), 5);
-  
-  // for (let i = 0; i < total+1; i++) {
-  //   butterfly[i] = [];
-  //   let lat = map(i, 0, total, -HALF_PI, HALF_PI);
-  //   let r2 = superShape(lat, 1, 1, 1, 1);
-
-  //   for (let j = 0; j < total+1; j++) {
-  //     let lon = map(j, 0, total, -PI, PI);
-  //     let r1 = superShape(lon, m, n1, n2, n3);
-  //     let x = r * r1 * cos(beta) * r2 * cos(beta);
-  //     let y = r * r1 * sin(lon) * r2 * cos(lat);
-  //     let z = r * r2 * sin(lat);
-  //     butterfly[i].push(createVector(x, y, z));
-     
-  //   }
-  // }
-
-  const sc = 50;
+ 
+  const sc = 20;
+  let theta = p * beta;
+  let phi = q * beta;
   let r = pow(e, sin(beta)) - 2 * cos(4 * beta) + pow(sin((2 * beta - PI) / 24), 5);
-  let theta = r * beta;
-  let phi = r * beta;
-  let x = sc * r * cos(phi) * cos(theta);
-  let y = sc * r * cos(phi) * sin(theta);
-  let z = sc * r * sin(phi);
-
+  x =  r * cos(theta) * (sc + cos(phi));
+  y = -r * sin(theta) * (sc + cos(phi));
+  z =  r * sin(phi);
   butterfly.push(createVector(x, y, z));
 
-  if (beta > 12 * PI) {
+  if (beta > 16 * PI) {
     noLoop();
   }
 
   beginShape();
   for (let v of butterfly) {
-    strokeWeight(2);
+    strokeWeight(1.2);
     stroke(255);
     vertex(v.x, v.y, v.z);
   }

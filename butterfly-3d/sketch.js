@@ -87,48 +87,5 @@ function draw() {
 }
 
 function mousePressed() {
-  save('butterfly_curve.jpg');
+  save('3d-butterfly_curve.jpg');
 }
-
-function setGradient(x, y, w, h, c1, c2, axis) {
-  noFill();
-
-  if (axis === Y_AXIS) {
-    // Top to bottom gradient
-    for (let i = y; i <= y + h; i++) {
-      let inter = map(i, y, y + h, 0, 0.7);
-      let c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(x, i, x + w, i);
-    }
-  } else if (axis === X_AXIS) {
-    // Left to right gradient
-    for (let i = x; i <= x + w; i++) {
-      let inter = map(i, x, x + w, 0, 1);
-      let c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(i, y, i, y + h);
-    }
-  }
-}
-
-function superShape(theta, m, n1, n2, n3) {
-  const a = 1;
-  const b = 1;
-  
-  let t1 = abs((1/a) * cos(m * theta / 4));
-  t1 = pow(t1, n2);
-  
-  let t2 = abs((1/b) * sin(m * theta / 4));
-  t2 = pow(t2, n3);
-  
-  t3 = t1 + t2;
-  let r = pow(t3, -1 / n1);
-  return r;
-}
-// function spherical(float x, float y, float z) {
-//   let r = sqrt(x*x + y*y + z*z);
-//   let theta = atan2( sqrt(x*x+y*y), z);
-//   let phi = atan2(y, x);
-//   return new Spherical(r, theta, phi);
-// }

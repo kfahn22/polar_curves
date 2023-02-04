@@ -74,7 +74,7 @@ function setup() {
   createCanvas(600, 400);
   // center of flower is 30px offset from center of circle
   for (let i = 0; i < 40; i++) {
-    flowers.push(new Flower(random(width-50), 200+random(50), 1, 1,14, random(flowerColors)));
+    flowers.push(new Flower(random(width-50), 200+random(50), 1, 1, 12, random(flowerColors)));
     //ferns.push(new Fern(width-50, 200+random(50), 50, 200));
    // stamens.push(new Stamen());
   }

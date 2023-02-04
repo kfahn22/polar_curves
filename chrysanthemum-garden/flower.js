@@ -36,6 +36,11 @@ class Flower {
 
     show() {
         push();
+        noStroke();
+        fill(0, 102, 0, 200);
+        rect(this.px + 30, this.py, 3, 200);
+        pop();
+        push();
         translate(this.px, this.py);
         beginShape();
         for (let v of this.points) {
@@ -46,10 +51,11 @@ class Flower {
         }
         endShape();
         pop();
-        // push();
-        // noStroke();
-        // fill(this.c3, 150);
-        // circle(this.px + 30, this.py, 2);
-        // pop();
+        push();
+        noStroke();
+        fill(this.c3, 150);
+        circle(this.px + 30, this.py, 6);
+        pop();
+       
     }
 }

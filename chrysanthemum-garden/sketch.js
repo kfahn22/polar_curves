@@ -9,6 +9,7 @@
 
 const flowers = [];
 const stamens = [];
+const ferns = [];
 let angle = 0;
 let beta = 0;
 const p = 4;
@@ -73,7 +74,8 @@ function setup() {
   createCanvas(600, 400);
   // center of flower is 30px offset from center of circle
   for (let i = 0; i < 40; i++) {
-    flowers.push(new Flower(random(width-30), 275+random(35), random(5), 3, random(1,2), random(flowerColors)));
+    flowers.push(new Flower(random(width-50), 200+random(50), 1, 1,14, random(flowerColors)));
+    //ferns.push(new Fern(width-50, 200+random(50), 50, 200));
    // stamens.push(new Stamen());
   }
 }
@@ -82,11 +84,11 @@ function draw() {
   angleMode(DEGREES);
   //blendMode(MULTIPLY);
   background(204, 255, 255, 100);
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 1; i++) {
    // push();
     flowers[i].oneFlower();
     flowers[i].show();
-   
+    //ferns[i].show()
    // pop();
   }
  

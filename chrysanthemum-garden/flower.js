@@ -1,10 +1,13 @@
 class Flower {
-    constructor(_px, _py, _p, _q, _h) {
+    constructor(_px, _py, _p, _q, _h, _c) {
         this.p = _p;
         this.q = _q;
         this.px = _px;
         this.py = _py;
         this.h = _h;
+        this.c1 = _c[0];
+        this.c2 = _c[1];
+        this.c3 = _c[2];
         this.points = [];
     }
 
@@ -32,16 +35,23 @@ class Flower {
 
 
     show() {
-        
+
         push();
-        noFill();
+        //noFill();
         translate(this.px, this.py);
         beginShape();
         for (let v of this.points) {
-            stroke(204, 0, 153, 50);
+            // fill(255, 204, 242, 50)
+            // stroke(255, 26, 198, 75);
+            fill(this.c1, 50)
+            stroke(this.c2, 75);
+            strokeWeight(0.5);
             vertex(v.x, v.y);
         }
         endShape();
         pop();
+        push();
+        fill(this.c3);
+        circle(this.px + 30, this.py, 5);
     }
 }

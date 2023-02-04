@@ -12,7 +12,7 @@
 //r = 5 (1 + sin(11 u / 5)) - 4 sin4(17 u / 3) sin8(2 cos(3 u) - 28 u)  . . . where 0 <= u <= 21 pi
 // and in Cartesian coordinates
 
-
+const chrysanthemums = [];
 const flower = [];
 const stamens = [];
 //const d = [];
@@ -27,9 +27,12 @@ let flowerColors = ['#e8b3ff', '#b300b3', '#660066', '#ba1aff', '#a100e6', '#8f0
 
 function setup() {
   createCanvas(800, 450);
-  for (i=0;i<10;i++)
+  let c1 = color('#b300b3');
+
+  for (i=0; i <25; i++)
   {
     stamens.push(new Stamen());
+    chrysanthemums.push(new Chrystanthemum(0, 0, 5, 2, 12));
   }
 }
 
@@ -71,8 +74,10 @@ function draw() {
     vertex(v.x, v.y);
   }
   endShape();
+  //chrysanthemums[0].oneFlower();
+  chrysanthemums[0].show();
   a += 0.01;
-  for (i=0;i<10;i++)
+  for (i=0;i<25;i++)
   {
     stamens[i].show();
   }

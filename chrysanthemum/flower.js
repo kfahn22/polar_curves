@@ -1,11 +1,10 @@
-class Flower {
-    constructor(_px, _py, _p, _q, _h, _c) {
-        this.p = _p;
-        this.q = _q;
+class Chrystanthemum {
+    constructor(_px, _py, _p, _q, _sc) {
         this.px = _px;
         this.py = _py;
-        this.h = _h;
-        this.c = _c;
+        this.p = _p;
+        this.q = _q;
+        this.sc = _sc;
         this.points = [];
     }
 
@@ -14,17 +13,12 @@ class Flower {
     // We need to loop trhough flower once before creating object
     oneFlower() {
         // 7560 when angle mode radians
-       let offset = 30;
         for (let beta = 0; beta < 361; beta += 1) {
-            rotateZ(30*beta);
-            let phi = this.p * beta;
-            let theta = this.q * beta;
             let r = 5 * (1 + sin(11 * beta / 5)) - 4 * pow(sin(17 * beta / 3), 4) + pow(sin(2 * cos(3 * beta) - 28 * beta), 8);
-            let x = r * cos(theta) * (this.h + cos(phi)) + offset;
-            let y = -r * sin(theta) * (this.h + cos(phi)); + offset;
-            let z = r * sin(phi) + offset;
-            let p = createVector(x, y, z);
-            if (this.points.length < 7560) {
+            let x = this.sc * r * cos(beta);
+            let y = -this.sc * r * sin(beta);
+            let p = createVector(x, y);
+            if (this.points.length < 361) {
                 this.points[beta] = p;
             } else {
                 break;
@@ -41,9 +35,9 @@ class Flower {
         beginShape();
         for (let v of this.points) {
             // rotateY(25);
-            stroke(0);
+            stroke(255, 255, 255, 100);
             //fill(this.c, 50)
-            vertex(v.x, v.y, v.z);
+            vertex(v.x, v.y);
         }
         endShape();
         pop();

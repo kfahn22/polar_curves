@@ -1,8 +1,8 @@
 class Stamen {
     constructor() {
-        this.x = random(-4, 4);
-        this.y = random(-4, 4);
-        this.r = 2;
+        this.x = random(-8, 8);
+        this.y = random(-8, 8);
+        this.r = 3;
     }
 
     show() {

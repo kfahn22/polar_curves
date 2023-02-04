@@ -35,23 +35,21 @@ class Flower {
 
 
     show() {
-
         push();
-        //noFill();
         translate(this.px, this.py);
         beginShape();
         for (let v of this.points) {
-            // fill(255, 204, 242, 50)
-            // stroke(255, 26, 198, 75);
             fill(this.c1, 50)
-            stroke(this.c2, 75);
-            strokeWeight(0.5);
+            stroke(this.c2, 50);
+            strokeWeight(0.1);
             vertex(v.x, v.y);
         }
         endShape();
         pop();
-        push();
-        fill(this.c3);
-        circle(this.px + 30, this.py, 5);
+        // push();
+        // noStroke();
+        // fill(this.c3, 150);
+        // circle(this.px + 30, this.py, 2);
+        // pop();
     }
 }

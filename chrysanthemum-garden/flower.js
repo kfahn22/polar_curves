@@ -33,29 +33,52 @@ class Flower {
 
     }
 
-
-    show() {
+    // Daniel Shiffman
+    // Code for: https://youtu.be/KWoJgHFYWxY
+    center() {
+        let n = 0;
+        let c = 4;
+        let start = 0;
         push();
-        noStroke();
-        fill(0, 102, 0, 200);
-        rect(this.px + 30, this.py, 3, 200);
-        pop();
-        push();
-        translate(this.px, this.py);
-        beginShape();
-        for (let v of this.points) {
-            fill(this.c1, 50)
-            stroke(this.c2, 50);
-            strokeWeight(0.1);
-            vertex(v.x, v.y);
+       // translate(this.px,this.py);
+        rotate(n * 0.3);
+        for (let i = 0; i < n; i++) {
+            let a = i * 137.5;
+            let r = c * sqrt(i);
+            let x = r * cos(a);
+            let y = r * sin(a);
+            fill(0);
+           // strokeWeight(1);
+            ellipse(x, y, c + 1, c + 1);
         }
-        endShape();
-        pop();
-        push();
-        noStroke();
-        fill(this.c3, 150);
-        circle(this.px + 30, this.py, 6);
-        pop();
-       
+        n += 5;
+        start += 0.1;
+       pop();
     }
+
+show() {
+    push();
+    noStroke();
+    fill(0, 102, 0, 200);
+    rect(this.px + 30, this.py, 3, 200);
+    pop();
+    push();
+    translate(this.px, this.py);
+    beginShape();
+    for (let v of this.points) {
+        fill(this.c1, 50)
+        stroke(this.c2, 50);
+        strokeWeight(0.1);
+        vertex(v.x, v.y);
+    }
+    endShape();
+    pop();
+    //push();
+    
+    fill(0, 255);
+    this.center();
+   // circle(this.px + 30, this.py, 6);
+   // pop();
+
+}
 }

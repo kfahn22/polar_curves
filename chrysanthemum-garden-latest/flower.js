@@ -3,13 +3,13 @@ let n = 0;
 let start = 0;
 
 class Flower {
-    constructor(_px, _py, _p, _q, _sc, _flsc, _c) {
+    constructor(_px, _py, _p, _q, _sc, _lfsc, _c) {
         this.px = _px;
         this.py = _py;
-        this.p = _p;
-        this.q = _q;
+        // this.p = _p;
+        // this.q = _q;
         this.sc = _sc;
-        this.flsc = _flsc;
+        this.lfsc = _lfsc;
         this.points = [];
         this.flowerPoints = [];
         this.leafPoints = [];
@@ -19,8 +19,7 @@ class Flower {
         this.c3 = _c[2];
     }
 
-    // https://github.com/anuraghazra/CanvasFun/blob/master/LoveHearts/Heart.js
-    // Reference for this function
+    // Reference https://github.com/anuraghazra/CanvasFun/blob/master/LoveHearts/Heart.js
     // We need to loop trhough flower once before creating object
     oneFlower() {
         // 7560 when angle mode radians
@@ -58,7 +57,7 @@ class Flower {
     oneLeaf() {
         for (let beta = 0; beta < 360; beta += 1) {
             //let r  = 90 * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(12*beta))*(9/10 + 1/10 * cos(50*beta)) * (1 + sin(beta));
-            let r = this.flsc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));
+            let r = this.lfsc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));
             let x = r * cos(beta);
             let y = -r * sin(beta);
             let p = createVector(x, y);
@@ -75,34 +74,44 @@ class Flower {
         // Draw stem 
         push();
         noFill();
-        stroke(0,102,0, 200);
+        stroke(0, 102, 0, 200);
         //stroke(59, 93, 89, 200);
-        strokeWeight(this.sc);
+        strokeWeight(this.sc + 1);
         beginShape();
         curveVertex(this.px, this.py);
         curveVertex(this.px, this.py + 10);
-        curveVertex(this.px + 10, this.py + 100);
-        curveVertex(this.px - 10, this.py + 200);
+        curveVertex(this.px + 5, this.py + 100);
+        curveVertex(this.px - 5, this.py + 200);
         curveVertex(this.px + 5, this.py + 300);
         curveVertex(this.px, this.py + 400);
         endShape();
         pop();
         // Draw leaf
-        push();
-        translate(this.px + 5, this.py + 50);
 
-        // line(this.px+5, this.py+50, this.px + 10, this.py - 30);
-
-        rotate(50);
         //fill(59, 93, 89, 200);
-        fill(0,102,0, 200);
+        fill(0, 102, 0, 200);
         noStroke();
-        beginShape();
-        for (let v of this.leafPoints) {
-            vertex(v.x, v.y);
+        push();
+        translate(this.px, this.py+50);
+        for (let i = 1; i < 4; i++) {
+            push();
+            translate(0, i*50);
+            if (i % 2 == 0) {
+                rotate(60);
+            } else {
+                rotate(-60);
+            }
+           
+            beginShape();
+            for (let v of this.leafPoints) {
+                vertex(v.x, v.y);
+            }
+            endShape();
+            pop();
+           
         }
-        endShape();
-        pop();
+         pop();
+
 
         // Draw flower
         push();

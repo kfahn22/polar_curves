@@ -5,21 +5,17 @@
 // http://paulbourke.net/geometry/chrysanthemum/
 
 
-// https://github.com/antiboredom/p5.patgrad
-let n = 0;
-let c = 1.3;
-let start = 0;
 let x = 200;
 let y = 200;
 let h = 5;
 const flowers = [];
-const stamens = [];
-const ferns = [];
-let angle = 0;
-let beta = 0;
-const p = 4;
-const q = 3;
-let gradient;
+// const stamens = [];
+// const ferns = [];
+// let angle = 0;
+// let beta = 0;
+// const p = 4;
+// const q = 3;
+//let gradient;
 let c1, c2;
 let flowerColors = [
   [
@@ -90,11 +86,11 @@ function draw() {
     
     flowers[i].oneFlower();
     flowers[i].oneLeaf();
-    flowers[i].center();
+   // flowers[i].center();
     flowers[i].show();
   }
 }
 
-function mousePressed() {
-  save('chysanthemum.jpg');
-}
+// function mousePressed() {
+//   save('chysanthemum.jpg');
+// }

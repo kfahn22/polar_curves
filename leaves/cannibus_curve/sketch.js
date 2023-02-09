@@ -6,7 +6,7 @@
 // https://mathworld.wolfram.com/topics/PlaneCurves.html
 // cannibus curve
 
-const heart = [];
+const points = [];
 let a= 0;
 const Y_AXIS = 1;
 const X_AXIS = 2;
@@ -25,7 +25,7 @@ function draw() {
   fill(59,93,89);
   
   beginShape();
-  for (let v of heart) {
+  for (let v of points) {
     vertex(v.x, v.y);
   }
   endShape();
@@ -34,7 +34,7 @@ function draw() {
   let r  = 90 * (1 + 9/10 * cos(8 * a))*(1 + 1/10 * cos(24*a))*(9/10 + 1/10 * cos(200*a)) * (1 + sin(a));
   const x = r * cos(a);
   const y = r * sin(a);
-  heart.push(createVector(x, y));
+  points.push(createVector(x, y));
   
   // So that it stops (approx. 3/8 for one leaf--probably need to start at PI/8)
   if ( a > PI ) {

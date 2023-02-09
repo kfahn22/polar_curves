@@ -4,18 +4,13 @@
 
 // http://paulbourke.net/geometry/chrysanthemum/
 
+// Note that this sketch is enery intensive!!
 
 let x = 200;
 let y = 200;
-let h = 5;
-const flowers = [];
-// const stamens = [];
-// const ferns = [];
-// let angle = 0;
-// let beta = 0;
-// const p = 4;
-// const q = 3;
-//let gradient;
+let h = 4;
+
+let flowers = [];
 let c1, c2;
 let flowerColors = [
   [
@@ -74,19 +69,28 @@ let flowerColors = [
 function setup() {
   createCanvas(600, 400);
   // center of flower is 30px offset from center of circle
-  for (let i = 0; i < 40; i++) {
-    flowers.push(new Flower(x, y, 1, 1, h, random(flowerColors)));
+  let flh = 4*h;
+  
+  for (let i = 0; i < 25; i++) {
+    flowers.push(new Flower(25*i + random(50), height*0.5 + random(80), 1, 1, random(h*.5, h), flh, random(flowerColors)));
   }
+ 
+    // f1 = new Flower(random(width), height/2 + random(30), 1, 1, h, flh, random(flowerColors));
+    // f2 = new Flower(x, y, 1, 1, h, flh, random(flowerColors));
 }
 
 function draw() {
   angleMode(DEGREES);
   background(204, 255, 255, 100);
-  for (let i = 0; i < 1; i++) {
-    
+    // f1.oneFlower();
+    // f1.oneLeaf();
+    // f1.show();
+    // f2.oneFlower();
+    // f2.oneLeaf();
+    // f2.show();
+  for (let i = 0; i < 25; i++) {
     flowers[i].oneFlower();
     flowers[i].oneLeaf();
-   // flowers[i].center();
     flowers[i].show();
   }
 }

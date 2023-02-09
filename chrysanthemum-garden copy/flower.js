@@ -1,17 +1,15 @@
-
-
 let a = 0;
 let n = 0;
 let start = 0;
-let c = 1.8;
 
 class Flower {
-    constructor(_px, _py, _p, _q, _sc, _c) {
+    constructor(_px, _py, _p, _q, _sc, _flsc, _c) {
         this.px = _px;
         this.py = _py;
         this.p = _p;
         this.q = _q;
         this.sc = _sc;
+        this.flsc = _flsc;
         this.points = [];
         this.flowerPoints = [];
         this.leafPoints = [];
@@ -40,8 +38,9 @@ class Flower {
 
     }
 
-    phyllotaxisCenter()
-    {
+    phyllotaxisCenter() {
+        let c = map(this.sc, 2, 4, 1, 1.8);
+        let adj = map(this.sc, 4, 6, 0.5, 1.8);
         push();
         noStroke();
         fill(this.c3, 200);
@@ -50,7 +49,7 @@ class Flower {
             let r = c * sqrt(i);
             let x = r * cos(a);
             let y = r * sin(a);
-            ellipse(x, y, c + 1.3, c + 1.3);
+            ellipse(x, y, c + adj, c + adj);
         }
         start += 0.1;
         pop();
@@ -59,7 +58,7 @@ class Flower {
     oneLeaf() {
         for (let beta = 0; beta < 360; beta += 1) {
             //let r  = 90 * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(12*beta))*(9/10 + 1/10 * cos(50*beta)) * (1 + sin(beta));
-            let r = this.sc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));
+            let r = this.flsc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));
             let x = r * cos(beta);
             let y = -r * sin(beta);
             let p = createVector(x, y);
@@ -73,6 +72,37 @@ class Flower {
     }
 
     show() {
+        // Draw stem 
+        push();
+        noFill();
+        stroke(59, 93, 89, 200);
+        strokeWeight(4);
+        beginShape();
+        curveVertex(this.px, this.py);
+        curveVertex(this.px, this.py + 10);
+        curveVertex(this.px + 10, this.py + 100);
+        curveVertex(this.px - 10, this.py + 200);
+        curveVertex(this.px + 5, this.py + 300);
+        curveVertex(this.px, this.py + 400);
+        endShape();
+        pop();
+        // Draw leaf
+        push();
+        translate(this.px + 5, this.py + 50);
+
+        // line(this.px+5, this.py+50, this.px + 10, this.py - 30);
+
+        rotate(50);
+        fill(59, 93, 89, 200);
+        noStroke();
+        beginShape();
+        for (let v of this.leafPoints) {
+            vertex(v.x, v.y);
+        }
+        endShape();
+        pop();
+
+        // Draw flower
         push();
         noFill();
         translate(this.px, this.py);
@@ -80,24 +110,13 @@ class Flower {
         for (let v of this.flowerPoints) {
             fill(this.c1, 50)
             stroke(this.c2, 50);
-            strokeWeight(1);
+            strokeWeight(0.1);
             vertex(v.x, v.y);
         }
         endShape();
         this.phyllotaxisCenter();
         pop();
 
-        
 
-        push();
-        translate(this.px + 100, this.py + 100);
-        beginShape();
-        for (let v of this.leafPoints) {
-            stroke(59,93,89, 100);
-            strokeWeight(1);
-            vertex(v.x, v.y);
-        }
-        endShape();
-        pop();
     }
 }

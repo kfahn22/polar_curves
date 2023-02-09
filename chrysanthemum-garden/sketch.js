@@ -78,7 +78,7 @@ let flowerColors = [
 function setup() {
   createCanvas(600, 400);
   // center of flower is 30px offset from center of circle
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 20; i++) {
     flowers.push(new Flower(x, y, 1, 1, h, random(flowerColors)));
   }
 }
@@ -86,7 +86,7 @@ function setup() {
 function draw() {
   angleMode(DEGREES);
   background(204, 255, 255, 100);
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 2; i++) {
     
     flowers[i].oneFlower();
     flowers[i].oneLeaf();

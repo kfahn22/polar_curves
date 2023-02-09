@@ -26,14 +26,23 @@ const outerRadius = 150;
 //#d980ff //1
 // #c94dff //2
 
-let flowerColors = ['#e8b3ff', '#b300b3', '#660066', '#ba1aff', '#a100e6', '#8f00cc', '#6b0099', '#4f2669']
-
+//let flowerColors = ['#e8b3ff', '#b300b3', '#660066', '#ba1aff', '#a100e6', '#8f00cc', '#6b0099', '#4f2669']
+let flowerColors = [
+  [232,179,255],
+  [179,0,179],
+  [102,0,102],
+  [186,26,255],
+  [161,0,230],
+  [143,0,204],
+  [107,0,153],
+  [79,38,105]
+];
 function setup() {
   createCanvas(800, 450);
   let c1 = color('#b300b3');
 
   for (i = 0; i < 25; i++) {
-    stamens.push(new Stamen());
+    //stamens.push(new Stamen());
     chrysanthemums.push(new Chrystanthemum(0, 0, 5, 2, 12));
   }
 }
@@ -82,14 +91,14 @@ function draw() {
   // }
   push();
   noStroke();
-  fill(77, 0, 102, 255);
-  circle(x, y, 3.5);
+  fill(102,0,102, 200);
+  //circle(x, y, 3.5);
   for (let i = 0; i < 60; i++) {
     let a = i * 137.5;
     let r = c * sqrt(i);
     let x = r * cos(a);
     let y = r * sin(a);
-    ellipse(x, y, c + 1, c + 1);
+    ellipse(x, y, c + 1.3, c + 1.3);
   }
   start += 0.1;
   pop();

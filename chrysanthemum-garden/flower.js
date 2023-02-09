@@ -22,7 +22,7 @@ class Flower {
             let theta = this.q * beta;
             let r = 5 * (1 + sin(11 * beta / 5)) - 4 * pow(sin(17 * beta / 3), 4) + pow(sin(2 * cos(3 * beta) - 28 * beta), 8);
             let x = r * cos(theta) * (this.h + cos(phi)) + offset;
-            let y = -r * sin(theta) * (this.h + cos(phi)); + offset;
+            let y = -r * sin(theta) * (this.h + cos(phi)); //+ offset;
             let p = createVector(x, y);
             if (this.points.length < 7560) {
                 this.points[beta] = p;

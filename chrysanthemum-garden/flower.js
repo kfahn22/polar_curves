@@ -41,7 +41,7 @@ class Flower {
         let start = 0;
         push();
        // translate(this.px,this.py);
-        rotate(n * 0.3);
+       rotate(n * 0.3);
         for (let i = 0; i < n; i++) {
             let a = i * 137.5;
             let r = c * sqrt(i);
@@ -60,10 +60,10 @@ show() {
     push();
     noStroke();
     fill(0, 102, 0, 200);
-    rect(this.px + 30, this.py, 3, 200);
+    rect(this.px, this.py, 3, 200);
     pop();
     push();
-    translate(this.px, this.py);
+    translate(this.px + 30, this.py);
     beginShape();
     for (let v of this.points) {
         fill(this.c1, 50)

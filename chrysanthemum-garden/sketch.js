@@ -6,7 +6,12 @@
 
 
 // https://github.com/antiboredom/p5.patgrad
-
+let n = 0;
+let c = 1.3;
+let start = 0;
+let x=200;
+let y=200;
+let h = 15;
 const flowers = [];
 const stamens = [];
 const ferns = [];
@@ -74,7 +79,7 @@ function setup() {
   createCanvas(600, 400);
   // center of flower is 30px offset from center of circle
   for (let i = 0; i < 40; i++) {
-    flowers.push(new Flower(random(width-50), 200+random(50), 1, 1, 15, random(flowerColors)));
+    flowers.push(new Flower(x, y, 1, 1, h, random(flowerColors)));
     //ferns.push(new Fern(width-50, 200+random(50), 50, 200));
    // stamens.push(new Stamen());
   }
@@ -86,8 +91,8 @@ function draw() {
   background(204, 255, 255, 100);
   for (let i = 0; i < 1; i++) {
    // push();
-    flowers[i].oneFlower();
-    flowers[i].center();
+   flowers[i].oneFlower();
+   // flowers[i].center();
     flowers[i].show();
     //ferns[i].show()
    // pop();
@@ -100,6 +105,22 @@ function draw() {
   //   pop();
   //   stamen[i].show();
   // }
+  push();
+  translate(x+4*h, y);
+ // rotate(n * 0.3);
+  for (let i = 0; i < n; i++) {
+      let a = i * 137.5;
+      let r = c * sqrt(i);
+      let x = r * cos(a);
+      let y = r * sin(a);
+      fill(0);
+     // strokeWeight(1);
+      ellipse(x, y, c + .1, c + .1);
+  }
+  while (n < 60)
+  {n += 0.6;}
+  start += 0.1;
+  pop();
 }
 
 function mousePressed() {

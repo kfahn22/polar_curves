@@ -75,8 +75,9 @@ class Flower {
         // Draw stem 
         push();
         noFill();
-        stroke(59, 93, 89, 200);
-        strokeWeight(4);
+        stroke(0,102,0, 200);
+        //stroke(59, 93, 89, 200);
+        strokeWeight(this.sc);
         beginShape();
         curveVertex(this.px, this.py);
         curveVertex(this.px, this.py + 10);
@@ -93,7 +94,8 @@ class Flower {
         // line(this.px+5, this.py+50, this.px + 10, this.py - 30);
 
         rotate(50);
-        fill(59, 93, 89, 200);
+        //fill(59, 93, 89, 200);
+        fill(0,102,0, 200);
         noStroke();
         beginShape();
         for (let v of this.leafPoints) {

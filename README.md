@@ -17,6 +17,13 @@ I am also using the P5.js [patgrad](https://github.com/antiboredom/p5.patgrad) l
 
 ![]()
 
+## Flowers for Bella
+
+This is in honor of my cocker spaniel, Bella, who I recently passed.  She was my loyal companion for 16 1/2 years and I cannot imagine a better dog.
+
+![](assets/Bella.jpeg)
+![](assets/garden.png)
+
 ## Butterfly Curve
 
 I am using the equation for the butterfly curve from [Paul Bourke](http://paulbourke.net/geometry/butterfly/). You can also learn about the curve at [Wolfram Mathworld](https://mathworld.wolfram.com/ButterflyCurve.html).

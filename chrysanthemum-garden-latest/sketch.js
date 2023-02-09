@@ -71,7 +71,7 @@ function setup() {
   let lf = 7 * fh;  // scale for leaves
 
   for (let i = 0; i < 25; i++) {
-    flowers.push(new Flower(25 * i + random(50), height * 0.3 + random(90), 1, 1, random(fh * .5, fh), lf, random(flowerColors)));
+    flowers.push(new Flower(25 * i + random(40), height * 0.3 + random(90), 1, 1, random(fh * .75, fh), lf, random(flowerColors)));
   }
 }
 

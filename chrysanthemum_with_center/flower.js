@@ -1,3 +1,9 @@
+let h = 15;
+let a = 0;
+let n = 0;
+let start = 0;
+let c = 1.8;
+
 class Chrystanthemum {
     constructor(_px, _py, _p, _q, _sc) {
         this.px = _px;
@@ -27,6 +33,21 @@ class Chrystanthemum {
 
     }
 
+    phyllotaxisCenter()
+    {
+        push();
+        noStroke();
+        fill(77, 0, 102, 200);
+        for (let i = 0; i < 60; i++) {
+            let a = i * 137.5;
+            let r = c * sqrt(i);
+            let x = r * cos(a);
+            let y = r * sin(a);
+            ellipse(x, y, c + 1.3, c + 1.3);
+        }
+        start += 0.1;
+        pop();
+    }
 
     show() {
         push();
@@ -34,12 +55,12 @@ class Chrystanthemum {
         translate(this.px, this.py);
         beginShape();
         for (let v of this.points) {
-            // rotateY(25);
             stroke(255, 255, 255, 100);
-            //fill(this.c, 50)
+            strokeWeight(1);
             vertex(v.x, v.y);
         }
         endShape();
         pop();
+        this.phyllotaxisCenter();
     }
 }

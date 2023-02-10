@@ -10,6 +10,8 @@ class Flower {
         // this.q = _q;
         this.sc = _sc;
         this.lfsc = _lfsc;
+        this.adj = 100;
+        this.branch = new Branch(this.px, this.py + this.adj, this.lfsc);
         this.points = [];
         this.flowerPoints = [];
         this.leafPoints = [];
@@ -55,21 +57,21 @@ class Flower {
         pop();
     }
 
-    stem() {
-        stroke(59, 93, 89);
-        strokeWeight(4);
-        noFill()
-        beginShape();
-        for (let i = 0; i < 5; i++) {
-            let sp = 34;
-            if (i % 2 == 0) {
-                curveVertex(this.px + i * (sp + 2), this.py - i * (sp - 1));
-            } else {
-                curveVertex(this.px + i * (sp - 1), this.py - i * (sp + 2));
-            }
-        }
-        endShape();
-    }
+    // branch() {
+    //     stroke(0, 102, 0, 200);
+    //     strokeWeight(4);
+    //     noFill()
+    //     beginShape();
+    //     for (let i = 0; i < 5; i++) {
+    //         let sp = 20;
+    //         if (i % 2 == 0) {
+    //             curveVertex(i * (sp + 2),  - i * (sp - 1));
+    //         } else {
+    //             curveVertex(i * (sp - 1), - i * (sp + 2));
+    //         }
+    //     }
+    //     endShape();
+    // }
 
     // formula adjusted from cannabis curve
     oneLeaf() {
@@ -104,31 +106,35 @@ class Flower {
         curveVertex(this.px, this.py + 400);
         endShape();
         pop();
-       
-        // Draw leaves
-        fill(0, 102, 0, 200);
-        noStroke();
-        push();
-        translate(this.px, this.py+50);
-        for (let i = 1; i < 3; i++) {
-            push();
-            translate(0, i*60);
-            if (this.ran > 0.5) {
-            //    if (i % 2 == 0) {
-                rotate(60);
-            } else {
-                rotate(-60);
-            }
+        let br = this.branch();
+        // push();
+        // translate(this.px-18, this.py+150);
+        // this.branch();
+        // pop();
+        // // Draw leaves
+        // fill(0, 102, 0, 200);
+        // noStroke();
+        // push();
+        // translate(this.px+25, this.py);
+        // for (let i = 1; i < 3; i++) {
+        //     push();
+        //     translate(0, i*60);
+        //     if (this.ran > 0.5) {
+        //     //    if (i % 2 == 0) {
+        //         rotate(60);
+        //     } else {
+        //         rotate(-60);
+        //     }
            
-            beginShape();
-            for (let v of this.leafPoints) {
-                vertex(v.x, v.y);
-            }
-            endShape();
-            pop();
+        //     beginShape();
+        //     for (let v of this.leafPoints) {
+        //         vertex(v.x, v.y);
+        //     }
+        //     endShape();
+        //     pop();
            
-        }
-         pop();
+        // }
+        //  pop();
 
 
         // Draw flower

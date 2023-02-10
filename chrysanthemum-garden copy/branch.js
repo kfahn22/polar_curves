@@ -1,7 +1,7 @@
 // creates a cross like shape -- might be cool with blur or alpha 
 // let r  = this.sc * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(8*beta))*(5/10 + 0.06 * cos(40*beta)) * (1 + sin(4*beta));
 
-class Leaf {
+class Branch {
     constructor(_px, _py, _sc) {
         this.px = _px;
         this.py = _py;

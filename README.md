@@ -15,7 +15,7 @@
 The center uses the code from Dan Shiffman's [Phyllotaxis Coding challenge](https://thecodingtrain.com/challenges/30-phyllotaxis).
 I am also using the P5.js [patgrad](https://github.com/antiboredom/p5.patgrad) libary to add a background gradient color to the flower.
 
-![]()
+![](assets/purple.png)
 
 ## Flower garden
 

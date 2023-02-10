@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  background(212,197,226);
+  background(255, 194, 153);
   let c1 = color(0);
   translate(width/2, height*7/8);
   noStroke(255);

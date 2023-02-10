@@ -1,7 +1,8 @@
 // Code base from Daniel Shiffman's Heart Curve and Phyllotaxis coding challenges
 // https://thecodingtrain.com/challenges/134-heart-curve
+// https://thecodingtrain.com/challenges/30-phyllotaxis
 
-// Chrysantemum curve formula from Paul Bourke
+// Chrysanthemum curve formula from Paul Bourke
 // http://paulbourke.net/geometry/chrysanthemum/
 
 

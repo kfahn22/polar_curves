@@ -21,7 +21,7 @@ class Flower {
     }
 
     // Reference https://github.com/anuraghazra/CanvasFun/blob/master/LoveHearts/Heart.js
-    // We need to loop trhough flower once before creating object
+    // We need to loop through flower once before creating object
     oneFlower() {
         // 7560 when angle mode radians
         for (let beta = 0; beta < 7560; beta += 1) {
@@ -55,9 +55,10 @@ class Flower {
         pop();
     }
 
+    // formula adjusted from cannabis curve
     oneLeaf() {
         for (let beta = 0; beta < 360; beta += 1) {
-            //let r  = 90 * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(12*beta))*(9/10 + 1/10 * cos(50*beta)) * (1 + sin(beta));
+            //let r  = 90 * (1 + 9/10 * cos(8 * a))*(1 + 1/10 * cos(24*a))*(9/10 + 1/10 * cos(200*a)) * (1 + sin(a));
             let r = this.lfsc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));
             let x = r * cos(beta);
             let y = -r * sin(beta);
@@ -72,7 +73,7 @@ class Flower {
     }
 
     show() {
-        // Draw stem 
+        // Draw stem with a slight bit of curve
         push();
         noFill();
         stroke(0, 102, 0, 200);
@@ -87,9 +88,8 @@ class Flower {
         curveVertex(this.px, this.py + 400);
         endShape();
         pop();
-        // Draw leaf
 
-        //fill(59, 93, 89, 200);
+        // Draw leaves
         fill(0, 102, 0, 200);
         noStroke();
         push();

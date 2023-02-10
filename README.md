@@ -28,6 +28,7 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 `let y = -r * sin(beta);`
 
 ![](assets/chrysanthemum_garden.jpg)
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/eywXIBj-t)
 
 ## Butterfly Curve
 

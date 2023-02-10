@@ -35,9 +35,8 @@ I am using the equation for the butterfly curve from [Paul Bourke](http://paulbo
 
 ![](assets/butterfly.png)
 
+# Other Resources
+
 I ran across this reference, which has the equations for the Batman, the Twitter logo and even a "bunny" curve!
-[Other Curves](https://blog.wolframalpha.com/2013/07/18/even-more-formulas-for-everything-from-filled-algebraic-curves-to-the-twitter-bird-the-american-flag-chocolate-easter-bunnies-and-the-superman-solid/)
-
-# Sources
-
+[Other Curves](https://blog.wolframalpha.com/2013/07/18/even-more-formulas-for-everything-from-filled-algebraic-curves-to-the-twitter-bird-the-american-flag-chocolate-easter-bunnies-and-the-superman-solid/)  
 [Wolfram Mathworld](https://mathworld.wolfram.com/topics/PlaneCurves.html)

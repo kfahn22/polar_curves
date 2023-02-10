@@ -17,12 +17,12 @@ I am also using the P5.js [patgrad](https://github.com/antiboredom/p5.patgrad) l
 
 ![]()
 
-## Flowers for Bella
+## Flower garden
 
-This is in honor of my cocker spaniel, Bella, who I recently passed.  She was my loyal companion for 16 1/2 years and I cannot imagine a better dog.
 
-![](assets/Bella.jpeg)
-![](assets/garden.png)
+
+
+![](assets/chrysanthemum_garden.jpg)
 
 ## Butterfly Curve
 

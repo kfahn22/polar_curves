@@ -1,100 +1,125 @@
-// Code base from Daniel Shiffman's Heart Curve coding challenge
+// Code base from Daniel Shiffman's Heart Curve and Phyllotaxis coding challenges
 // https://thecodingtrain.com/challenges/134-heart-curve
-// https://youtu.be/oUBAi9xQ2X4
 
+// Chrysantemum curve formula from Paul Bourke
 // http://paulbourke.net/geometry/chrysanthemum/
 
 
-// https://github.com/antiboredom/p5.patgrad
-let n = 0;
-let c = 1.3;
-let start = 0;
-let x = 200;
-let y = 200;
-let h = 5;
-const flowers = [];
-const stamens = [];
-const ferns = [];
-let angle = 0;
-let beta = 0;
-const p = 4;
-const q = 3;
-let gradient;
-let c1, c2;
+let fh = 4.5; // scale for flower
+const Y_AXIS = 1;
+const X_AXIS = 2;
+
+let flowers = [];
+
+// 80%, 60%, 40%
 let flowerColors = [
   [
-    [255, 179, 235],
-    [255, 77, 207],
-    [77, 0, 57]
+    [255, 153, 153],
+    [255, 51, 51],
+    [204,0,0]
   ],
   [
-    [204, 204, 255],
-    [77, 77, 207],
-    [0, 0, 153]
+    [255,187,153],
+    [255,119,51],
+    [204,68,0]
   ],
   [
-    [255, 204, 179],
-    [255, 119, 51],
-    [179, 60, 0]
+    [255, 221,153],
+    [255,187,51],
+    [204,136,0]
   ],
   [
-    [255, 240, 179],
-    [255, 214, 51],
-    [179, 143, 0]
+    [255, 153, 204],
+    [255, 51, 153],
+    [204,0,102]
   ],
   [
-    [224, 179, 255],
-    [184, 77, 255],
-    [92, 0, 255]
+    [255,214,153],
+    [255,173,51],
+    [204,122,0]
   ],
   [
-    [255, 179, 179],
-    [255, 102, 102],
-    [179, 0, 0]
+    [230,179,204],
+    [204,102,151],
+    [153, 51,100]
   ],
   [
     [255, 153, 255],
-    [255, 77, 255],
-    [153, 0, 153]
+    [255, 51, 255],
+    [204,0,204]
   ],
   [
-    [153, 230, 255],
-    [51, 204, 255],
-    [0, 153, 204]
+    [255,235,153],
+    [255,214,51],
+    [204,163,0]
   ],
   [
-    [179, 179, 255],
-    [77, 77, 255],
-    [0, 0, 179]
+    [255, 153, 187],
+    [255,51,119],
+    [204,0,68]
   ],
   [
-    [255, 153, 230],
-    [255, 51, 204],
-    [128, 0, 96]
+    [255, 153, 204],
+    [255, 51, 153],
+    [204,0,102]
+  ],
+  [
+    [255, 214, 153],
+    [255, 173, 51],
+    [204,122, 0]
   ],
 ]
 
 
 function setup() {
   createCanvas(600, 400);
-  // center of flower is 30px offset from center of circle
-  for (let i = 0; i < 20; i++) {
-    flowers.push(new Flower(x, y, 1, 1, h, random(flowerColors)));
+  let lf = 7 * fh;  // scale for leaves
+
+  for (let i = 0; i < 18; i++) {
+    flowers.push(new Flower(30 * (i+1) + random(26), height * 0.34 + random(100), 1, 1, random(fh * .75, fh), lf, random(flowerColors)));
   }
+  // randomize the order of the flowers
+  shuffle(flowers, true);
 }
 
 function draw() {
   angleMode(DEGREES);
-  background(204, 255, 255, 100);
-  for (let i = 0; i < 2; i++) {
-    
+  let c1 = color(153,235, 255);
+  let c2 = color(153,255,221);
+  let c3 = color(0, 51, 0);
+  setGradient(0, 0, 600, 200, c1, c2, Y_AXIS);
+  setGradient(0, 200, 600, 400, c2, c3, Y_AXIS);
+
+  //Add flowers
+  for (let i = 0; i < 18; i++) {
     flowers[i].oneFlower();
     flowers[i].oneLeaf();
-    flowers[i].center();
     flowers[i].show();
   }
 }
 
+function setGradient(x, y, w, h, c1, c2, axis) {
+  noFill();
+
+  if (axis === Y_AXIS) {
+    // Top to bottom gradient
+    for (let i = y; i <= y + h; i++) {
+      let inter = map(i, y, y + h, 0, 1);
+      let c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x + w, i);
+    }
+  } else if (axis === X_AXIS) {
+    // Left to right gradient
+    for (let i = x; i <= x + w; i++) {
+      let inter = map(i, x, x + w, 0, 1);
+      let c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(i, y, i, y + h);
+    }
+  }
+}
+
 function mousePressed() {
-  save('chysanthemum.jpg');
+  save('chrysanthemum_garden.jpg');
 }

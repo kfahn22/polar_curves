@@ -29,8 +29,8 @@ function setup() {
 
 function draw() {
   angleMode(DEGREES);
-  background(flowerColors[6]);
-  background(255, 0, 0);
+  background(255);
+  //background(255, 0, 0);
   rotateX(60);
   //rotateY(20);
   //angle += 0.01;

@@ -2,11 +2,6 @@
 // https://thecodingtrain.com/challenges/134-heart-curve
 // https://youtu.be/oUBAi9xQ2X4
 
-// Resources for butterfly equations
-// Paul Bourke.net (also has 3d version)
-
-
-
 // http://paulbourke.net/geometry/chrysanthemum/
 
 //r = 5 (1 + sin(11 u / 5)) - 4 sin4(17 u / 3) sin8(2 cos(3 u) - 28 u)  . . . where 0 <= u <= 21 pi
@@ -35,7 +30,7 @@ function setup() {
 function draw() {
   angleMode(DEGREES);
   background(flowerColors[6]);
-  background(255);
+  background(255, 0, 0);
   rotateX(60);
   //rotateY(20);
   //angle += 0.01;

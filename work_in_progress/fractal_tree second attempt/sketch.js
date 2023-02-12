@@ -12,7 +12,63 @@ let end = [];
 const Y_AXIS = 1;
 const X_AXIS = 2;
 
-//let count = 0;
+let flowerColors = [
+  [
+    [255, 153, 153],
+    [255, 51, 51],
+    [204,0,0]
+  ],
+  [
+    [255,187,153],
+    [255,119,51],
+    [204,68,0]
+  ],
+  [
+    [255, 221,153],
+    [255,187,51],
+    [204,136,0]
+  ],
+  [
+    [255, 153, 204],
+    [255, 51, 153],
+    [204,0,102]
+  ],
+  [
+    [255,214,153],
+    [255,173,51],
+    [204,122,0]
+  ],
+  [
+    [230,179,204],
+    [204,102,151],
+    [153, 51,100]
+  ],
+  [
+    [255, 153, 255],
+    [255, 51, 255],
+    [204,0,204]
+  ],
+  [
+    [255,235,153],
+    [255,214,51],
+    [204,163,0]
+  ],
+  [
+    [255, 153, 187],
+    [255,51,119],
+    [204,0,68]
+  ],
+  [
+    [255, 153, 204],
+    [255, 51, 153],
+    [204,0,102]
+  ],
+  [
+    [255, 214, 153],
+    [255, 173, 51],
+    [204,122, 0]
+  ],
+]
 
 function setup() {
   createCanvas(400, 400);
@@ -26,16 +82,10 @@ function setup() {
  end.push(tree[1].branch(-60));
  end.push(tree[2].branch(0));
  end.push(tree[3].branch(60));
- console.log(end[0]);
-//  ct_end= tree[2].branch(0);
-//  rt_end = tree[3].branch(60);
-  //console.log(lt_end);
-  // lft_lf = tree[1].end.copy()
-  // console.log(lft_lf);
-  //leaves.push(new Leaf (lt_end.x, lt_end.y, 10));
+ //console.log(end[0]);
   
   leaves.push(new Leaf (end[0].x, end[0].y, 10));
-  // flower.push(new Flower(end[1].x, end[1].y, 10));
+  flower.push(new Flower(end[1].x, end[1].y, 4, random(flowerColors)));
   leaves.push(new Leaf (end[2].x, end[2].y, 10));
 }
 
@@ -54,13 +104,8 @@ function draw() {
   leaves[i].oneLeaf();
   leaves[i].renderLeaf();
  }
-  // for (var i = 0; i < leaves.length; i++) {
-  //   fill(255, 0, 100, 100);
-  //   noStroke();
-  //   ellipse(leaves[i].x, leaves[i].y, 8, 8);
-  //   leaves[i].y += random(0, 2);
-  // }
-
+ flower[0].oneFlower();
+flower[0].show();
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {

@@ -17,6 +17,23 @@ function setup() {
   let root = new Branch(a, b);
 
   tree[0] = root;
+  // for (let i = tree.length - 1; i >= 0; i--) {
+  //   if (!tree[i].finished) {
+      tree.push(tree[i].branchA());
+      tree.push(tree[i].branchB());
+  //   }
+  //   tree[i].finished = true;
+  // }
+  // count++;
+
+  // if (count === 6) {
+    for (var i = 0; i < tree.length; i++) {
+      // if (!tree[i].finished) {
+        let leaf = tree[i].end.copy();
+        leaves.push(leaf);
+      // }
+    // }
+  }
 }
 
 function mousePressed() {

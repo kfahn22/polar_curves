@@ -31,7 +31,7 @@ class Leaf {
         // 7560 when angle mode radians
         for (let beta = 0; beta < 360; beta += 1) {
             //let r  = 90 * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(12*beta))*(9/10 + 1/10 * cos(50*beta)) * (1 + sin(beta));
-            let r = this.sc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));
+            let r = this.sc * (1 + 1 * cos(1 * beta)) * (1 + 2 / 10 * cos(7 * beta)) * (5 / 10 + 0.06 * cos(50 * beta)) * (1 + sin(beta));
             let x = r * cos(beta);
             let y = -r * sin(beta);
             let p = createVector(x, y);

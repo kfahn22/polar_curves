@@ -74,10 +74,10 @@ let flowerColors = [
 
 function setup() {
   createCanvas(600, 400);
-  let lf = 4 * fh;  // scale for leaves
+  let lf = 7 * fh;  // scale for leaves
 
-  for (let i = 0; i < 18; i++) {
-    flowers.push(new Flower(30 * (i+1) + random(26), height * 0.34 + random(100), 1, 1, random(fh * .75, fh), lf, random(flowerColors)));
+  for (let i = 0; i < 1; i++) {
+    flowers.push(new Flower(30 * (i+1) + random(26), height * 0.34 + random(100), random(fh * .75, fh), lf, random(flowerColors)));
   }
   // randomize the order of the flowers
   shuffle(flowers, true);
@@ -92,10 +92,10 @@ function draw() {
   setGradient(0, 200, 600, 400, c2, c3, Y_AXIS);
 
   //Add flowers
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 1; i++) {
     flowers[i].oneFlower();
-    flowers[i].oneLeaf();
-    flowers[i].show();
+    // flowers[i].oneLeaf();
+   flowers[i].show();
   }
 }
 

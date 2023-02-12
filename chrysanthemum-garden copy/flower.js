@@ -3,15 +3,16 @@ let n = 0;
 let start = 0;
 
 class Flower {
-    constructor(_px, _py, _p, _q, _sc, _lfsc, _c) {
+    constructor(_px, _py, _sc, _lfsc, _c) {
         this.px = _px;
         this.py = _py;
-        // this.p = _p;
-        // this.q = _q;
+        this.a = createVector(this.px, height);
+        this.b = createVector(this.px, this.py - this.adj);
+        this.adj = 0;
         this.sc = _sc;
         this.lfsc = _lfsc;
-        this.begin = this.px;
-        this.end = this.py;
+        this.begin = this.a;
+        this.end = this.b;
         this.points = [];
         this.flowerPoints = [];
         this.leafPoints = [];
@@ -58,37 +59,49 @@ class Flower {
     }
 
     branchA() {
+        this.adj = 10;
         let dir = p5.Vector.sub(this.end, this.begin);
         dir.rotate(PI / 6);
         dir.mult(0.67);
         let newEnd = p5.Vector.add(this.end, dir);
         let b = new Branch(this.end, newEnd);
         return b;
-      }
-    
-      branchB() {
+    }
+
+    branchB() {
         let dir = p5.Vector.sub(this.end, this.begin);
         dir.rotate(-PI / 4);
         dir.mult(0.67);
         let newEnd = p5.Vector.add(this.end, dir);
         let b = new Branch(this.end, newEnd);
         return b;
-      }
+    }
 
     stem() {
         stroke(59, 93, 89);
-        strokeWeight(4);
-        noFill()
+        // Draw stem with a slight bit of curve
+        push();
+        noFill();
+        stroke(0, 102, 0, 200);
+        strokeWeight(this.sc + 1);
+        let sp = 2;
         beginShape();
-        for (let i = 0; i < 5; i++) {
-            let sp = 34;
-            if (i % 2 == 0) {
-                curveVertex(this.px + i * (sp + 2), this.py - i * (sp - 1));
+        for (let i = 0; i < 8; i++)
+        {
+            if (i % 2 == 2) {
+              //  if (this.ran > 0.5) {
+                curveVertex(this.px + i * (sp), this.py + i * 75);
             } else {
-                curveVertex(this.px + i * (sp - 1), this.py - i * (sp + 2));
+                curveVertex(this.px - i * (sp), this.py + i * 67);
             }
         }
+        // curveVertex(this.px, this.py + 10);
+        //    curveVertex(this.px + 2, this.py + 100);
+        //    curveVertex(this.px - 2, this.py + 200);
+        //    curveVertex(this.px + 2, this.py + 300);
+        //    curveVertex(this.px, this.py + 400);}
         endShape();
+        pop();
     }
 
     // formula adjusted from cannabis curve
@@ -110,46 +123,32 @@ class Flower {
     }
 
     show() {
-        // Draw stem with a slight bit of curve
-        push();
-        noFill();
-        stroke(0, 102, 0, 200);
-        //stroke(59, 93, 89, 200);
-        strokeWeight(this.sc + 1);
-        beginShape();
-        curveVertex(this.px, this.py);
-        curveVertex(this.px, this.py + 10);
-        curveVertex(this.px + 2, this.py + 100);
-        curveVertex(this.px - 2, this.py + 200);
-        curveVertex(this.px + 2, this.py + 300);
-        curveVertex(this.px, this.py + 400);
-        endShape();
-        pop();
-       
+        this.stem();
+        //  this.branchA();
         // Draw leaves
         fill(0, 102, 0, 200);
         noStroke();
         push();
-        translate(this.px, this.py+50);
+        translate(this.px, this.py + 50);
         for (let i = 1; i < 3; i++) {
             push();
-            translate(0, i*60);
+            translate(0, i * 60);
             if (this.ran > 0.5) {
-            //    if (i % 2 == 0) {
+                //    if (i % 2 == 0) {
                 rotate(60);
             } else {
                 rotate(-60);
             }
-           
+
             beginShape();
             for (let v of this.leafPoints) {
                 vertex(v.x, v.y);
             }
             endShape();
             pop();
-           
+
         }
-         pop();
+        pop();
 
 
         // Draw flower

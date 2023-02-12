@@ -11,13 +11,13 @@ class Branch {
     //   if (i % 2 != 0)
     //  { this.branch(60);}
     if (i == 1) {
-      this.branch(-60);
+      this.branch(-60, 0.45);
     } else if (i == 2) {
-      this.branch(0);
+      this.branch(0, 0.8);
     } else if (i == 3) {
-      this.branch(60);
+      this.branch(60, 0.45);
     }
-
+    let half = createVector()
     line(this.begin.x, this.begin.y, this.end.x, this.end.y);
   }
 
@@ -54,13 +54,13 @@ class Branch {
     return newEnd;
   }
 
-  branch(angle) {
+  branch(angle, multfact) {
     stroke(59, 93, 89);
     strokeWeight(4);
     noFill()
     let dir = p5.Vector.sub(this.end, this.begin);
     dir.rotate(angle);
-    dir.mult(0.67);
+    dir.mult(multfact);
     let newEnd = p5.Vector.add(this.end, dir);
     line(this.end.x, this.end.y, newEnd.x, newEnd.y);
     // beginShape();

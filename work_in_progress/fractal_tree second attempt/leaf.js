@@ -44,10 +44,12 @@ class Leaf {
 
     }
 
-    renderLeaf() {
+    renderLeaf(angle) {
+        
         fill(59, 93, 89);
         push();
         translate(this.px, this.py);
+        rotate(angle);
         beginShape();
         for (let v of this.points) {
             vertex(v.x, v.y);

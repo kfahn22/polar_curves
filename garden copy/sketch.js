@@ -75,16 +75,18 @@ function setup() {
   angleMode(DEGREES);
   //flHeight = random(fh * .75, fh)
   let lf = 3 * fh;  // scale for leaves
-  for (i = 0; i < 1; i++) {
+  for (i = 0; i < 18; i++) {
     //flowers.push(new FlowerPlant(30 * (i+1) + random(26), height * 0.34 + random(100), random(fh * .75, fh), random(flowerColors)));
     flowers.push(new FlowerPlant(30 * (i+1) + random(26), height, random(fh * .75, fh), random(flowerColors)));
   }
+  // randomize the order of the flowers
+  shuffle(flowers, true);
 }
 
 function draw() {
   background(51);
-  let c1 = color(153, 235, 255);
-  let c2 = color(153, 255, 221);
+  let c1 = color(153,235, 255);
+  let c2 = color(153,255,221);
   let c3 = color(0, 51, 0);
   setGradient(0, 0, 600, 200, c1, c2, Y_AXIS);
   setGradient(0, 200, 600, 400, c2, c3, Y_AXIS);
@@ -93,16 +95,6 @@ function draw() {
     flowers[i].show();
 
   }
-  // for (let i = 0; i < 2; i++) {
-  //   leaves[i].oneLeaf();
-  //   if (i % 2 == 0) {
-  //     leaves[i].renderLeaf(-80);
-  //   } else {
-  //     leaves[i].renderLeaf(30);
-  //   }
-  // }
-  //   flower[0].oneFlower();
-  //   flower[0].show();
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {

@@ -7,25 +7,8 @@ class Leaf {
         this.px = _px;
         this.py = _py;
         this.sc = _sc;
-        this.ran = random(1);
         this.points = [];
     }
-
-    // stem() {
-    //     stroke(59, 93, 89);
-    //     strokeWeight(4);
-    //     noFill()
-    //     beginShape();
-    //     for (let i = 0; i < 5; i++) {
-    //         let sp = 34;
-    //         if (i % 2 == 0) {
-    //             curveVertex(this.px + i * (sp + 2), this.py - i * (sp - 1));
-    //         } else {
-    //             curveVertex(this.px + i * (sp - 1), this.py - i * (sp + 2));
-    //         }
-    //     }
-    //     endShape();
-    // }
 
     // We need to loop trhough curve once before creating object
     oneLeaf() {
@@ -47,7 +30,8 @@ class Leaf {
 
     renderLeaf(angle) {
         strokeWeight(2);
-        fill(0,77,26, 220);
+        stroke(64,191,64, 60);
+        fill(102,204,102, 80);
         push();
         translate(this.px, this.py);
         rotate(angle);

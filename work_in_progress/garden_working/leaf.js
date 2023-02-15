@@ -2,7 +2,8 @@
 // let r  = this.sc * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(8*beta))*(5/10 + 0.06 * cos(40*beta)) * (1 + sin(4*beta));
 
 class Leaf {
-    constructor(_px, _py, _sc) {
+   
+       constructor( _px, _py, _sc) {
         this.px = _px;
         this.py = _py;
         this.sc = _sc;
@@ -45,8 +46,8 @@ class Leaf {
     }
 
     renderLeaf(angle) {
-        
-        fill(59, 93, 89);
+        strokeWeight(2);
+        fill(0,77,26, 220);
         push();
         translate(this.px, this.py);
         rotate(angle);

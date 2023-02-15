@@ -8,7 +8,7 @@
 let tree = [];
 let leaves = [];
 let flower = [];
-let end = [];
+let h = 400;
 const Y_AXIS = 1;
 const X_AXIS = 2;
 
@@ -73,21 +73,26 @@ let flowerColors = [
 function setup() {
   createCanvas(400, 400);
   angleMode(DEGREES);
-  let a = createVector(width / 2, height);
-  let b = createVector(width / 2, height - 100);
+  // let a = createVector(width / 2, h);
+  // let b = createVector(width / 2, h - 100);
 
-  for (i = 0; i < 4; i++) {
-    tree.push(new Branch(a, b));
+  for (i = 0; i < 2; i++) {
+    tree.push(new Branch(200, height));
   }
 
-  end.push(tree[1].branch(-60, 0.45));
-  end.push(tree[2].branch(0, 0.8));
-  end.push(tree[3].branch(60, 0.45));
-  //console.log(end[0]);
-
-  leaves.push(new Leaf(end[0].x, end[0].y, 18));
-  flower.push(new Flower(end[1].x, end[1].y, 4, random(flowerColors)));
-  leaves.push(new Leaf(end[2].x, end[2].y, 18));
+  let lfBranchTip = tree[0].branch(1);
+  let rtBranchTip = tree[0].branch(-1);
+  // branchTips.push(tree[0].branch(1));
+  // branchTips.push(tree[0].branch(-1));
+  console.log(lfBranchTip.x);
+  console.log(rtBranchTip.x);
+  // end.push(tree[2].branch(0, 0.2));
+  // end.push(tree[3].branch(60, 0.2));
+  // //console.log(end[0]);
+  //leaves.push(new Leaf(260, 260, 4));
+ leaves.push(new Leaf(lfBranchTip.x, lfBranchTip.y, 10));
+  // //flower.push(new Flower(end[1].x, end[1].y, 4, random(flowerColors)));
+  leaves.push(new Leaf(rtBranchTip.x, rtBranchTip.y, 10));
 }
 
 function draw() {
@@ -95,22 +100,23 @@ function draw() {
   let c1 = color(153, 235, 255);
   let c2 = color(153, 255, 221);
   let c3 = color(0, 51, 0);
-  setGradient(0, 0, 600, 200, c1, c2, Y_AXIS);
-  setGradient(0, 200, 600, 400, c2, c3, Y_AXIS);
+  setGradient(0, 0, 400, 200, c1, c2, Y_AXIS);
+  setGradient(0, 200, 400, 400, c2, c3, Y_AXIS);
   for (var i = 0; i < tree.length; i++) {
+    //tree[i].branch(1);
     tree[i].show(i);
 
   }
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
     leaves[i].oneLeaf();
     if (i % 2 == 0) {
-      leaves[i].renderLeaf(-80);
-    } else {
       leaves[i].renderLeaf(30);
+    } else {
+      leaves[i].renderLeaf(-80);
     }
   }
-  flower[0].oneFlower();
-  flower[0].show();
+  //   flower[0].oneFlower();
+  //   flower[0].show();
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {

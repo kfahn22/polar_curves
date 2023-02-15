@@ -6,8 +6,9 @@ class Branch {
     this.sp = 0.5;
     this.adj = 8;
     this.num = random(3,5);
-    this.brnum = this.num - 2;
+    this.brnum = this.num ;
     this.ctnum = this.num;
+    this.ran = random(-0.5,0.5);
   }
 
   wiggle(px, py, sc, num, sp, len, mX) {
@@ -34,10 +35,10 @@ class Branch {
    // return end;
   }
 
-  lfBranch(adj, len) {
+  lfBranch(adj, len, mX, add) {
     let begin = this.stem();
     begin.y = begin.y + adj;
-    this.wiggle(begin.x, begin.y, this.sc - 0.25, this.brnum, 1, len, -1);
+    this.wiggle(begin.x, begin.y, this.sc - 0.25, this.brnum, this.ran + add, len, mX);
     return createVector(begin.x -(this.brnum)*len, begin.y - (this.brnum) * len);
   }
 
@@ -47,10 +48,10 @@ class Branch {
     return createVector(begin.x, begin.y - this.ctnum * 10);
   }
 
-  rtBranch(adj, len) {
+  rtBranch(adj, len, mX, add) {
     let begin = this.stem(this.px, this.py);
     begin.y = begin.y + adj;
-    this.wiggle(begin.x, begin.y, this.sc - 0.25, this.brnum, 1, len, 1);
+    this.wiggle(begin.x, begin.y, this.sc - 0.25, this.brnum, this.ran + add, len, mX);
     return createVector(begin.x  + (this.brnum)* len, begin.y - (this.brnum) * len);
   }
 

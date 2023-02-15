@@ -73,11 +73,8 @@ let flowerColors = [
 function setup() {
   createCanvas(600, 400);
   angleMode(DEGREES);
-  //flHeight = random(fh * .75, fh)
-  let lf = 3 * fh;  // scale for leaves
-  for (i = 0; i < 18; i++) {
-    //flowers.push(new FlowerPlant(30 * (i+1) + random(26), height * 0.34 + random(100), random(fh * .75, fh), random(flowerColors)));
-    flowers.push(new FlowerPlant(30 * (i+1) + random(26), height, random(fh * .75, fh), random(flowerColors)));
+  for (i = 0; i < 10; i++) {
+    flowers.push(new FlowerPlant(55 * (i+1) + random(26), height, random(4, 6), random(40, 48), random(65, 70), random(flowerColors)));
   }
   // randomize the order of the flowers
   shuffle(flowers, true);

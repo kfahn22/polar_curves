@@ -30,8 +30,8 @@ class Leaf {
 
     renderLeaf(angle) {
         strokeWeight(2);
-        stroke(64,191,64, 60);
-        fill(102,204,102, 80);
+        stroke(38,115,38, 220);
+        fill(45, 134, 45, 210);
         push();
         translate(this.px, this.py);
         rotate(angle);

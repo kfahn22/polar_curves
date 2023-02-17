@@ -6,8 +6,8 @@
 // Code from challenge: https://editor.p5js.org/codingtrain/sketches/JDT5wrxVj
 
 let tree = [];
+let leafCoord = [];
 let leaves = [];
-
 let count = 0;
 
 function setup() {
@@ -28,11 +28,12 @@ function setup() {
 
   if (count === 6) {
     for (var i = 0; i < tree.length; i++) {
-     if (!tree[i].finished) {
+      if (!tree[i].finished) {
         let leaf = tree[i].end.copy();
-        leaves.push(leaf);
-       }
-     }
+        leafCoord.push(leaf);
+        leaves.push(new Leaf(leafCoord.x, leafCoord.y), 4);
+      }
+    }
   }
 }
 
@@ -50,11 +51,12 @@ function mousePressed() {
     for (var i = 0; i < tree.length; i++) {
       if (!tree[i].finished) {
         let leaf = tree[i].end.copy();
-        leaves.push(leaf);
+        leafCoord.push(leaf);
+        leaves.push(new Leaf(leafCoord.x, leafCoord.y, 4));
       }
     }
   }
-
+ 
 }
 
 function draw() {
@@ -62,14 +64,11 @@ function draw() {
 
   for (var i = 0; i < tree.length; i++) {
     tree[i].show();
-    tree[i].jitter();
   }
 
   for (var i = 0; i < leaves.length; i++) {
-    fill(255, 0, 100, 100);
-    noStroke();
-    ellipse(leaves[i].x, leaves[i].y, 8, 8);
-    leaves[i].y += random(0, 2);
+    leaves[i].oneLeaf();
+    leaves[i].renderLeaf();
   }
 
 }

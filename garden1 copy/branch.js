@@ -58,5 +58,6 @@ class Branch {
   show() {
     stroke(38,115,38,180);
     this.stem();
+    
   }
 }

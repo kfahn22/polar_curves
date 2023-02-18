@@ -27,8 +27,9 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 `let x = r * cos(beta);`    
 `let y = -r * sin(beta);`
 
-![](assets/chrysanthemum_garden.png)
-[p5 sketch](https://editor.p5js.org/kfahn/sketches/wnQDK8Qog)
+![](assets/chrysanthemum_garden.png)  
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/wnQDK8Qog)  
+[Code](https://github.com/kfahn22/polar_curves/tree/main/chrystanthemum_garden)
 
 ## Butterfly Curve
 

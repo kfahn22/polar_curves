@@ -12,6 +12,7 @@ class Branch {
   }
 
   wiggle(px, py, sc, num, sp, len, mX) {
+    noFill();
     stroke(38,115,38, 180);
     strokeWeight(sc);
     push();
@@ -19,12 +20,12 @@ class Branch {
     beginShape();
     for (let i = 0; i < num-1; i++) {
       if (i % 2 == 0) {
-        vertex(mX * i *len + sp, - i * len);
+       vertex(mX * i *len + sp, - i * len);
       } else {
-        vertex(mX * i * len - sp, - i * len);
+       vertex(mX * i * len - sp, - i * len);
       }
     }
-    vertex(mX * num *len, -num * len);
+    vertex(mX* num *len, -num * len);
     endShape();
     pop();
   }
@@ -58,6 +59,8 @@ class Branch {
   show() {
     stroke(38,115,38,180);
     this.stem();
-    
+    // this.lfBranch();
+    // this.rtBranch();
+    // this.centerBranch();
   }
 }

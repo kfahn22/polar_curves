@@ -14,7 +14,7 @@ let sc = 40;
 function setup() {
   createCanvas(400, 400);
   angleMode(DEGREES);
-  l = new Leaf(0, 0,40);
+  l = new Leaf(0, 0,15);
 }
 
 function draw() {

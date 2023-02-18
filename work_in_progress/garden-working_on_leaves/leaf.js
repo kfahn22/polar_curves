@@ -2,28 +2,12 @@
 // let r  = this.sc * (1 + 7/10 * cos(4 * beta))*(1 + 1/10 * cos(8*beta))*(5/10 + 0.06 * cos(40*beta)) * (1 + sin(4*beta));
 
 class Leaf {
-    constructor(_px, _py, _sc) {
+   
+       constructor( _px, _py, _sc) {
         this.px = _px;
         this.py = _py;
         this.sc = _sc;
-        this.ran = random(1);
         this.points = [];
-    }
-
-    stem() {
-        stroke(59, 93, 89);
-        strokeWeight(4);
-        noFill()
-        beginShape();
-        for (let i = 0; i < 5; i++) {
-            let sp = 34;
-            if (i % 2 == 0) {
-                curveVertex(this.px + i * (sp + 2), this.py - i * (sp - 1));
-            } else {
-                curveVertex(this.px + i * (sp - 1), this.py - i * (sp + 2));
-            }
-        }
-        endShape();
     }
 
     // We need to loop trhough curve once before creating object
@@ -44,27 +28,18 @@ class Leaf {
 
     }
 
-    renderLeaf(x, y, i) {
-        fill(59, 93, 89);
+    renderLeaf(angle) {
+        strokeWeight(2);
+        stroke(38,115,38, 220);
+        fill(45, 134, 45, 210);
         push();
-        translate(x, y);
-        if (this.ran > 0.5 && i % 2 == 0) {
-            rotate(-10);
-        } else {
-            rotate(70);
-        }
+        translate(this.px, this.py);
+        rotate(angle);
         beginShape();
         for (let v of this.points) {
             vertex(v.x, v.y);
         }
         endShape();
         pop();
-    }
-
-    show() {
-        this.stem();
-        for (let i = 0; i < 2; i++) {
-            this.renderLeaf((i + 1) * 50, -(i + 1) * 50, i);
-        }
     }
 }

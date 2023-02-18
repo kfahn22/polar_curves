@@ -5,14 +5,13 @@ class Branch {
     this.sc = _sc;
     this.sp = 0.5;
     this.adj = 8;
-    this.num = random(3,5);
+    this.num = int(random(3,5));
     this.brnum = this.num ;
     this.ctnum = this.num;
     this.ran = random(-0.5,0.5);
   }
 
   wiggle(px, py, sc, num, sp, len, mX) {
-    noFill();
     stroke(38,115,38, 180);
     strokeWeight(sc);
     push();
@@ -20,20 +19,20 @@ class Branch {
     beginShape();
     for (let i = 0; i < num-1; i++) {
       if (i % 2 == 0) {
-       vertex(mX * i *len + sp, - i * len);
+        vertex(mX * i *len + sp, - i * len);
       } else {
-       vertex(mX * i * len - sp, - i * len);
+        vertex(mX * i * len - sp, - i * len);
       }
     }
-    vertex(mX* num *len, -num * len);
+    vertex(mX * num *len, -num * len);
     endShape();
     pop();
   }
 
   stem() {
-    this.wiggle(this.px, this.py, this.sc, this.num, 1, 40, 0);
-    return createVector(this.px, this.py - (this.num-1) * 40);
-   // return end;
+    this.wiggle(this.px, this.py, this.sc, this.num, 1, 43, 0);
+    return createVector(this.px, this.py - (this.num) * 43);
+   // return createVector(this.px, this.py - (this.num-1) * 45);
   }
 
   lfBranch(adj, len, mX, add) {
@@ -59,8 +58,5 @@ class Branch {
   show() {
     stroke(38,115,38,180);
     this.stem();
-    // this.lfBranch();
-    // this.rtBranch();
-    // this.centerBranch();
   }
 }

@@ -15,10 +15,10 @@ class FlowerPlant {
   }
 
   addBranches() {
-    let lfBranchTip = this.branch.lfBranch(this.brHeight1, 6, -1.2, 0.25);
-    let lfBranchTip2 = this.branch.lfBranch(this.brHeight2, 8, - 0.95, 0.25);
-    let rtBranchTip = this.branch.rtBranch(this.brHeight1, 5, 1.15, 0.25);
-    let rtBranchTip2 = this.branch.rtBranch(this.brHeight2, 7, 0.9, 0.15);
+    let lfBranchTip = this.branch.lfBranch(this.brHeight1, 5, -1.2, 0.25);
+    let lfBranchTip2 = this.branch.lfBranch(this.brHeight2, 7, - 0.95, 0.25);
+    let rtBranchTip = this.branch.rtBranch(this.brHeight1, 4, 1.15, 0.25);
+    let rtBranchTip2 = this.branch.rtBranch(this.brHeight2, 6, 0.9, 0.15);
     let ctBranchTip = this.branch.centerBranch();
     this.leaves.push(new Leaf(lfBranchTip.x, lfBranchTip.y, this.lfsc));
     this.leaves.push(new Leaf(rtBranchTip.x, rtBranchTip.y, this.lfsc));

@@ -105,6 +105,6 @@ function draw() {
 
 }
 
-function mousePressed() {
-  save('chysanthemum.jpg');
-}
+// function mousePressed() {
+//   save('chysanthemum.jpg');
+// }

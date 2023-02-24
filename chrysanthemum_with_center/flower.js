@@ -18,7 +18,8 @@ class Chrystanthemum {
     // Reference for this function
     // We need to loop trhough flower once before creating object
     oneFlower() {
-        // 7560 when angle mode radians
+        // 7560 when angle mode degrees; 21PI in radians
+        
         for (let beta = 0; beta < 7560; beta += 1) {
             let r = 5 * (1 + sin(11 * beta / 5)) - 4 * pow(sin(17 * beta / 3), 4) + pow(sin(2 * cos(3 * beta) - 28 * beta), 8);
             let x = this.sc * r * cos(beta);

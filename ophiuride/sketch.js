@@ -25,15 +25,15 @@ let a = 1.5;
 let b = 0.2;
 let sc = 30;
 let oph1;
-let n = 120;
+let n = 220;
 
 
 function setup() {
   createCanvas(400, 400);
   angleMode(DEGREES);
-  
+  let c1 = color(253, 245, 191, 180);
   let c2 = color(180,126,179, 150);
-  let c1 = color(255, 213, 255, 100);
+  //let c1 = color(255, 213, 255, 100);
   let c3 = color(146, 209, 195, 75);
   let c4 = color(17,157,164, 50);
   // let c1 = color(239, 195, 245, 180);
@@ -61,7 +61,8 @@ function setup() {
 
 function draw() {
   //background(15,16,32);
-  background(253,245,191);
+  //background(253,245,191);
+  background(10,9,8);
   for (let i = ophcurve.length-1; i > 0; i--)
   {
     ophcurve[i].oneCurve();

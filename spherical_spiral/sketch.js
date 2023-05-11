@@ -13,6 +13,18 @@ let w = 50;
 let b = 10;
 let angle = 0;
 let n = 50;
+let frames = 60;
+
+function keyPressed() {
+  if (key == "s") {
+    const options = {
+      units: "frames",
+      delay: 0
+    }
+    saveGif("spiral.gif", frames, options);
+  }
+}
+
 
 function setup() {
   createCanvas(400, 400, WEBGL);
@@ -31,18 +43,15 @@ function draw() {
   background(240, 60, 40);
   rotateY(angle);
   rotateX(angle);
- 
   strokeWeight(1);
   noFill();
   
   for (let i = 0 ; i < spiral.length; i++)
   {spiral[i].oneCurve();
   spiral[i].show();}
-  angle += 1;
- 
+  angle += 360 / frames;
 }
 
 function mousePressed() {
   save('spiral.jpg');
 }
-

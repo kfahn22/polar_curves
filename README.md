@@ -43,32 +43,17 @@ I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/O
 ![](assets/ophiuride1.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
 
-## Spiral Fan
+## Spiral 
 
-I started with the equation for Seiffert's spherical curve from [Seiffert spiral](https://www.wolframalpha.com/input/?i=seiffert%27s+spherical+spiral).  However, it is not quite right, since I am using the normal trig functions instead of the Jacobian versions.  I am also only pushing a point to the array for theta % 8.  
+I started with the equation for spherical spiral curve from [spiral](https://www.wolframalpha.com/input?i=spherical+spiral&assumption=%22ClashPrefs%22+-%3E+%7B%22SpaceCurve%22%2C+%22SphericalSpiral%22%7D
+). 
 
-`const x = this.r * sin(theta / pow(this.a, 2)) * cos(this.a * theta);`  
-`const y = this.r * sin(theta / pow(this.a, 2)) * sin(this.a * theta);`  
-`const z = this.r * cos(theta / pow(this.a, 2));`
-
-![fan](https://github.com/kfahn22/polar_curves/assets/65121394/30f4b722-0ef2-4bcd-b2cf-2c404f5fdadd)
-
-
-## Butterfly Curve
-
-I am using the equation for the butterfly curve from [Paul Bourke](http://paulbourke.net/geometry/butterfly/). You can also learn about the curve at [Wolfram Mathworld](https://mathworld.wolfram.com/ButterflyCurve.html).
-
-![](asset/butterfly.png)
-
-## "Cannabis" Curve
-
-You can vary the look of the leaf by adjusting the parameters, as I have done for the garden sketch.
-
-`let r  = 90 * (1 + 9/10 * cos(8 * a))*(1 + 1/10 * cos(24*a))*(9/10 + 1/10 * cos(200*a)) * (1 + sin(a));`  
-`const x = r * cos(a);`  
-`const y = r * sin(a);`
-
-![](assets/cannabis.png)
+`a = 0.9`  
+`b = 10` 
+`w = 50`   
+`const x = (rx * cos(w*theta)) / sqrt(a*a * theta*theta + b);`  
+`const y = (ry * sin(w*theta)) / sqrt(a*a * theta*theta + b);`   
+`const z = -(a * rz * theta ) / sqrt(a*a * theta*theta + b);`  
 
 # Other Resources
 

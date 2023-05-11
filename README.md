@@ -33,10 +33,22 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 
 ## Ophiuride Curve
 
-I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html)
+I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html).  The curves are graphed from -170, 170 degrees;
+
+`let r = ( 0.2 * sin(theta) -  1.5 * cos(theta) ) * tan(theta);`
 
 ![](assets/ophiuride1.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
+
+## Spherical Fan
+
+I started with the equation for Seiffert's spherical curve from []().  However, it is not quite right, since I am using the normal trig functions instead of the Jacobian versions.  I am also only pushing a point to the array for theta % 8.  
+
+`const x = this.r * sin(theta / pow(this.a, 2)) * cos(this.a * theta);`  
+`const y = this.r * sin(theta / pow(this.a, 2)) * sin(this.a * theta);`  
+`const z = this.r * cos(theta / pow(this.a, 2));`
+
+![]()
 
 ## Butterfly Curve
 

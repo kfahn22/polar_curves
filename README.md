@@ -31,6 +31,13 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/wnQDK8Qog)  
 [Code](https://github.com/kfahn22/polar_curves/tree/main/chrystanthemum_garden)
 
+## Ophiuride Curve
+
+I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html)
+
+![](assets/ophiuride1.jpg)
+[p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
+
 ## Butterfly Curve
 
 I am using the equation for the butterfly curve from [Paul Bourke](http://paulbourke.net/geometry/butterfly/). You can also learn about the curve at [Wolfram Mathworld](https://mathworld.wolfram.com/ButterflyCurve.html).

@@ -58,6 +58,7 @@ I started with the equation for Seiffert's spherical curve from [Seiffert spiral
 
 I am using the equation for the butterfly curve from [Paul Bourke](http://paulbourke.net/geometry/butterfly/). You can also learn about the curve at [Wolfram Mathworld](https://mathworld.wolfram.com/ButterflyCurve.html).
 
+![](asset/butterfly.png)
 
 ## "Cannabis" Curve
 

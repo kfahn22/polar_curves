@@ -33,16 +33,19 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 
 ## Ophiuride Curve
 
-I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html).  The curves are graphed from -170, 170 degrees;
+I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html).  I am graphing 120 curves with a random rotation with varying scale and alpha.
 
+`for (let theta = -170; theta < 170; theta += 1) {`        
 `let r = ( 0.2 * sin(theta) -  1.5 * cos(theta) ) * tan(theta);`
+`let x = this.sc * r * cos(theta);`    
+`let y = -this.sc * r * sin(theta);}`
 
 ![](assets/ophiuride1.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
 
-## Spherical Fan
+## Spiral Fan
 
-I started with the equation for Seiffert's spherical curve from []().  However, it is not quite right, since I am using the normal trig functions instead of the Jacobian versions.  I am also only pushing a point to the array for theta % 8.  
+I started with the equation for Seiffert's spherical curve from [Seiffert spiral](https://www.wolframalpha.com/input/?i=seiffert%27s+spherical+spiral).  However, it is not quite right, since I am using the normal trig functions instead of the Jacobian versions.  I am also only pushing a point to the array for theta % 8.  
 
 `const x = this.r * sin(theta / pow(this.a, 2)) * cos(this.a * theta);`  
 `const y = this.r * sin(theta / pow(this.a, 2)) * sin(this.a * theta);`  

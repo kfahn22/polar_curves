@@ -12,11 +12,8 @@ class Ophiuride {
         this.col = color(this.c);
     }
 
-    // https://github.com/anuraghazra/CanvasFun/blob/master/LoveHearts/Heart.js
-    // Reference for this function
-    // We need to loop trhough flower once before creating object
+    // We need to loop through curve once before creating object
     oneCurve() {
-        // 7560 when angle mode radians
         for (let theta = -170; theta < 170; theta += 1) {
             // Equations for ophiuride curve
             let r = ( this.b * sin(theta) -  this.a * cos(theta) ) * tan(theta);
@@ -29,7 +26,6 @@ class Ophiuride {
                 break;
             }
         }
-
     }
 
 

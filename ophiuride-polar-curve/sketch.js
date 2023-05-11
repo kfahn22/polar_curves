@@ -8,7 +8,8 @@ let theta = - 70; //PI/2;
 
 let a = 1.5;
 let b = 0.2;
-//let sc = 30;
+let sc = 30;
+let oph1;
 let n = 120;
 
 

@@ -51,13 +51,14 @@ I started with the equation for Seiffert's spherical curve from [Seiffert spiral
 `const y = this.r * sin(theta / pow(this.a, 2)) * sin(this.a * theta);`  
 `const z = this.r * cos(theta / pow(this.a, 2));`
 
-![]()
+![fan](https://github.com/kfahn22/polar_curves/assets/65121394/30f4b722-0ef2-4bcd-b2cf-2c404f5fdadd)
+
 
 ## Butterfly Curve
 
 I am using the equation for the butterfly curve from [Paul Bourke](http://paulbourke.net/geometry/butterfly/). You can also learn about the curve at [Wolfram Mathworld](https://mathworld.wolfram.com/ButterflyCurve.html).
 
-![](assets/butterfly.png)
+![](asset/butterfly.png)
 
 ## "Cannabis" Curve
 

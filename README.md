@@ -36,7 +36,7 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html).  I am graphing 120 curves with a random rotation with varying scale and alpha.
 
 `for (let theta = -170; theta < 170; theta += 1) {`        
-`let r = ( 0.2 * sin(theta) -  1.5 * cos(theta) ) * tan(theta);`
+`let r = ( 0.2 * sin(theta) -  1.5 * cos(theta) ) * tan(theta);`  
 `let x = this.sc * r * cos(theta);`    
 `let y = -this.sc * r * sin(theta);}`
 

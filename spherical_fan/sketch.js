@@ -11,6 +11,8 @@ let angle = 0;
 let frames = 60;
 let a = 0.21;
 let n = 15;
+let h = 400;
+let r = h/20;
 
 function keyPressed() {
   if (key == "s") {
@@ -23,18 +25,19 @@ function keyPressed() {
 }
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  createCanvas(2*h, h, WEBGL);
   angleMode(DEGREES);
   colorMode(HSL);
-  let r = width/8;
+  
+  //let r = width/16;
   for (let i = 0; i < n; i++)
   {
-    c = color(264, 100, (n-i)*8);
-    spherical.push(new Spherical(0, 0, a, r + i*8, i*45, c));}
+    c = color(280, 100, i*6);
+    spherical.push(new Spherical(0, 0, a, r + i*10, i*45, c));}
 }
 
 function draw() {
-  background(150, 50, 40);
+  background(280, 100, 20);
   rotateY(angle);
   rotateX(angle);
   noFill();

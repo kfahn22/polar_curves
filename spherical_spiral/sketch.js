@@ -12,7 +12,7 @@ let a = 0.9;
 let w = 50;
 let b = 10;
 let angle = 0;
-let n = 50;
+let n = 40;
 let frames = 60;
 
 function keyPressed() {
@@ -32,20 +32,18 @@ function setup() {
   colorMode(HSL);
   for (let i = 0; i < n; i++)
   {
-    let br = (n-i)*5;
-    let l = map(br, 0, 100, 40, 80);
-    let c = color(288,100,l);
+    // let br = (n-i)*10;
+    // let l = map(0, 100, 60, 90, br);
+    let c = color(280,100,50);
     spiral.push(new Spiral(a, b, w, rx, ry, rz, i*10, c));
   }
 }
 
 function draw() {
-  background(240, 60, 40);
+  background(280, 100, 20);
   rotateY(angle);
   rotateX(angle);
-  strokeWeight(1);
-  noFill();
-  
+  fill(280,100,90)
   for (let i = 0 ; i < spiral.length; i++)
   {spiral[i].oneCurve();
   spiral[i].show();}

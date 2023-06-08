@@ -6,7 +6,7 @@ class Spherical {
     this.r = _r;
     this.points = [];
     this.rot = _rot;
-    this.st = 2;
+    this.st = 1.5;
     this.c = _c;
     this.col = color(this.c);
   }

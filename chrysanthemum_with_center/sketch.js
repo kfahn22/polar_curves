@@ -7,8 +7,10 @@
 // and in Cartesian coordinates
 
 const chrysanthemums = [];
+// const innerRadius = 10;
+// const outerRadius = 150;
 const innerRadius = 10;
-const outerRadius = 150;
+const outerRadius = 250;
 
 let flowerColors = [
   [232,179,255],
@@ -21,10 +23,10 @@ let flowerColors = [
   [79,38,105]
 ];
 function setup() {
-  createCanvas(800, 450);
+  createCanvas(400, 400);
   angleMode(DEGREES);
   for (i = 0; i < 1; i++) {
-    chrysanthemums.push(new Chrystanthemum(0, 0, 5, 2, 12));
+    chrysanthemums.push(new Chrystanthemum(0, 0, 5, 2, 18));
   }
 }
 

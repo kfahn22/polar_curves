@@ -43,6 +43,10 @@ I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/O
 ![](assets/ophiuride1.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
 
+## Spiral Fan
+
+
+
 ## Spiral 
 
 I started with the equation for spherical spiral curve from [spiral](https://www.wolframalpha.com/input?i=spherical+spiral&assumption=%22ClashPrefs%22+-%3E+%7B%22SpaceCurve%22%2C+%22SphericalSpiral%22%7D

@@ -41,8 +41,9 @@ function setup() {
 
 function draw() {
   background(280, 100, 20);
-  rotateY(angle);
   rotateX(angle);
+  rotateY(angle);
+  rotateZ(angle);
   fill(280,100,90)
   for (let i = 0 ; i < spiral.length; i++)
   {spiral[i].oneCurve();

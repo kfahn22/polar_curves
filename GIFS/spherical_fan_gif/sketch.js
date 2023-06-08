@@ -10,9 +10,9 @@ const spherical = [];
 let angle = 0;
 let frames = 60;
 let a = 0.21;
-let n = 15;
+let n = 3;
 let h = 400;
-let r = h/20;
+let r = h/3;
 
 function keyPressed() {
   if (key == "s") {
@@ -30,14 +30,36 @@ function setup() {
   colorMode(HSL);
   
   //let r = width/16;
-  for (let i = 0; i < n; i++)
+//   let c1 = color(220, 204, 255, 180); // pink
+//   let c2 = color(224, 123, 224, 150); // br pink
+//   let c3 = color(39, 93, 173, 75); // blue
+  
+//   let ran = int(random(3));
+//   for (let i = 0; i < n*0.25; i++)
+//  { 
+  
+//     spherical.push(new Spherical(0, 0, a, r + i, i*45, c2));
+//   } 
+//   for (let i = n*0.25; i < n*0.5; i++)
+//   {
+//     spherical.push(new Spherical(0, 0, a, r + i, i*45, c3));
+//   }
+//   for (let i = n*0.5 + 1; i < n; i++)
+//   {
+//     spherical.push(new Spherical(0, 0, a, r + i, i*45, c1));
+//   }
+
+ 
+   for (let i = 0; i < 5; i++)
   {
-    c = color(280, 100, i*6);
-    spherical.push(new Spherical(0, 0, a, r + i*10, i*45, c));}
+    c = color(280, 100, i*6.5);
+    spherical.push(new Spherical(0, 0, a, r + i*10, i*45, color(280, 100, 50 + i*10)));
+  }
 }
 
 function draw() {
   background(280, 100, 20);
+  //background(66, 65, 63); //grey
   rotateY(angle);
   rotateX(angle);
   noFill();

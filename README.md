@@ -1,19 +1,16 @@
 # Polar Curves
 
- This repository contains a collection of p5.js sketches that utilize polar curves. 
- 
- 
- The base code is from Dan Shiffman's [Heart Curve Coding Challenge](https://thecodingtrain.com/challenges/134-heart-curve).   
- 
- 
- ## Chrysanthemum Curve
+This repository contains a collection of p5.js sketches that utilize polar curves.
 
- I am using the equation for a chrysanthemum curve from [Paul Bourke](http://paulbourke.net/geometry/chrysanthemum/).  
+The base code is from Dan Shiffman's [Heart Curve Coding Challenge](https://thecodingtrain.com/challenges/134-heart-curve).
 
- `r = 5 (1 + sin(11 u / 5)) - 4 sin4(17 u / 3) sin8(2 cos(3 u) - 28 u)  . . . where 0 <= u <= 21 pi`  
+## Chrysanthemum Curve
+
+I am using the equation for a chrysanthemum curve from [Paul Bourke](http://paulbourke.net/geometry/chrysanthemum/).
+
+`r = 5 (1 + sin(11 u / 5)) - 4 sin4(17 u / 3) sin8(2 cos(3 u) - 28 u)  . . . where 0 <= u <= 21 pi`
 
 The center uses the code from Dan Shiffman's [Phyllotaxis Coding challenge](https://thecodingtrain.com/challenges/30-phyllotaxis).
-
 
 I am also using the P5.js [patgrad](https://github.com/antiboredom/p5.patgrad) libary to add a background gradient color to the flower.
 
@@ -23,8 +20,8 @@ I am also using the P5.js [patgrad](https://github.com/antiboredom/p5.patgrad) l
 
 In this sketch, I am using a Flower class to render multiple flowers and have adapted the "cannabis" curve to create the leaves. The formula for the cannabis curve is from [Mathworld](https://mathworld.wolfram.com/CannabisCurve.html).
 
-`let r = this.lfsc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));`   
-`let x = r * cos(beta);`    
+`let r = this.lfsc * (1 + 7 / 10 * cos(4 * beta)) * (1 + 1 / 10 * cos(12 * beta)) * (5 / 10 + 0.06 * cos(40 * beta)) * (1 + sin(beta));`  
+`let x = r * cos(beta);`  
 `let y = -r * sin(beta);`
 
 ![](assets/chrysanthemum_garden.jpg)  
@@ -33,30 +30,25 @@ In this sketch, I am using a Flower class to render multiple flowers and have ad
 
 ## Ophiuride Curve
 
-I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html).  I am graphing 120 curves with a random rotation with varying scale and alpha.
+I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/Ophiuride.html). I am graphing 120 curves with a random rotation with varying scale and alpha.
 
-`for (let theta = -170; theta < 170; theta += 1) {`        
+`for (let theta = -170; theta < 170; theta += 1) {`  
 `let r = ( 0.2 * sin(theta) -  1.5 * cos(theta) ) * tan(theta);`  
-`let x = this.sc * r * cos(theta);`    
+`let x = this.sc * r * cos(theta);`  
 `let y = -this.sc * r * sin(theta);}`
 
 ![](assets/ophiuride1.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
 
-## Spiral Fan
+## Spiral
 
-
-
-## Spiral 
-
-I started with the equation for spherical spiral curve from [spiral](https://www.wolframalpha.com/input?i=spherical+spiral&assumption=%22ClashPrefs%22+-%3E+%7B%22SpaceCurve%22%2C+%22SphericalSpiral%22%7D
-). 
+I started with the equation for spherical spiral curve from [spiral](https://www.wolframalpha.com/input?i=spherical+spiral&assumption=%22ClashPrefs%22+-%3E+%7B%22SpaceCurve%22%2C+%22SphericalSpiral%22%7D).
 
 `a = 0.9`  
-`b = 10` 
-`w = 50`   
+`b = 10`
+`w = 50`  
 `const x = (rx * cos(w*theta)) / sqrt(a*a * theta*theta + b);`  
-`const y = (ry * sin(w*theta)) / sqrt(a*a * theta*theta + b);`   
+`const y = (ry * sin(w*theta)) / sqrt(a*a * theta*theta + b);`  
 `const z = -(a * rz * theta ) / sqrt(a*a * theta*theta + b);`  
 ![spiral](https://github.com/kfahn22/polar_curves/assets/65121394/f3adf73a-85b3-4c58-a49e-7ed970d51669)
 

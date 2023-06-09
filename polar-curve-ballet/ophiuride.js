@@ -2,7 +2,7 @@ class Ophiuride {
   constructor(_rot, _p, _q) {
     this.a = 1.45;
     this.b = 0.25;
-    this.sc = 5;
+    this.sc = 3;
     this.points = [];
     this.rot = _rot;
     this.p = _p;

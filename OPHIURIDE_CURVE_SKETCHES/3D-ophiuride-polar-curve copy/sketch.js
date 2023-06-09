@@ -6,12 +6,11 @@
 // p > q, n = 20, yields rounder, ball shaped collection of curves
 // The system is somewhat chaotic in the sense that small changes in parameters
 // yield very different curves
-// different parameters yield VERY different animations
 let ophcurve = [];
 let n = 20;
 let angle = 0;
 let p = 3;
-let q = 7;
+let q = 2;
 
 function setup() {
   createCanvas(400, 400, WEBGL);
@@ -23,8 +22,6 @@ function setup() {
 
 function draw() {
   background(0);
-  // if the rotation is commented out there is a pretty cool 2D animation
-  //rotateX(90);
   rotateX(angle);
   // rotateY(angle); //
   rotateZ(angle);
@@ -37,8 +34,8 @@ function draw() {
     ophcurve[i].reset();
   }
   ophcurve = [];
-  // p += 0.001;
-  // q += 0.001;
+  //p += 0.01;
+  //q += 0.001;
   angle += 1;
 }
 // function mousePressed() {

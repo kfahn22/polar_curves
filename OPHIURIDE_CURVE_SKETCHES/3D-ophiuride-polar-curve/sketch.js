@@ -35,7 +35,7 @@ function draw() {
   }
   ophcurve = [];
   //p += 0.01;
-  q += 0.001;
+  //q += 0.001;
   angle += 1;
 }
 // function mousePressed() {

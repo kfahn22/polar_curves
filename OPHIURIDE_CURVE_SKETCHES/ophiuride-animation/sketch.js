@@ -10,21 +10,28 @@ let ophcurve = [];
 let n = 20;
 let angle = 0;
 let p = 3;
-let q = 2;
+let q = 5;
+let frames = 60;
+
+function keyPressed() {
+  if (key == "s") {
+    const options = {
+      units: "frames",
+      delay: 0,
+    };
+    saveGif("GIF/oph.gif", frames, options);
+  }
+}
 
 function setup() {
   createCanvas(400, 400, WEBGL);
   angleMode(DEGREES);
-  // for (let i = 0; i < n; i++) {
-  //   ophcurve.push(new Ophiuride(30 * i, p, q));
-  // }
 }
 
 function draw() {
   background(0);
-  rotateX(angle);
-  // rotateY(angle); //
   rotateZ(angle);
+
   for (let i = 0; i < n; i++) {
     ophcurve.push(new Ophiuride(30 * i, p, q));
   }
@@ -32,11 +39,12 @@ function draw() {
     ophcurve[i].oneCurve();
     ophcurve[i].showSphere();
     ophcurve[i].reset();
+    
   }
   ophcurve = [];
-  //p += 0.01;
-  //q += 0.001;
-  angle += 1;
+  p += 0.1/frames;
+  q += 0.1/frames;
+  angle += 360/frames;
 }
 // function mousePressed() {
 //   save('ophiuride.jpg');

@@ -18,11 +18,9 @@ class Gear {
 
   hyperbolicTan(theta) {
     let e = 2.71828;
-    let l = pow(e, 2 * theta);
-
-    return (l - 1) / (l + 1);
+    let l = pow(e, 2*theta);
+    return (l - 1 )/ (l + 1);
   }
-
   // We need to loop through curve once before creating object
   oneCurve() {
     for (let theta = 0; theta < 361; theta += 1) {
@@ -33,7 +31,7 @@ class Gear {
       let x = this.sc * r * sin(theta);
       let y = this.sc * r * cos(theta);
       let p = createVector(x, y);
-      if (this.points.length < 361) {
+      if (this.points.length < 360) {
         this.points[theta] = p;
       } else {
         break;
@@ -41,18 +39,19 @@ class Gear {
     }
   }
 
-  show(rot) {
+  show() {
     push();
     noFill();
     translate(this.px, this.py);
-    rotate(this.rot);
+    //rotate(this.rot);
     beginShape();
     for (let v of this.points) {
-      strokeWeight(1);
+      strokeWeight(2);
       stroke(this.col);
       vertex(v.x, v.y);
     }
     endShape();
     pop();
+    this.points = [];
   }
 }

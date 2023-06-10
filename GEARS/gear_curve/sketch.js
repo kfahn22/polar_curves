@@ -1,7 +1,7 @@
 // Code base from Daniel Shiffman's Heart Curve coding challenge
 
-// Ophiuride curve equation from Wolfram Alpha
-// https://mathworld.wolfram.com/Ophiuride.html
+// Gear curve equation from Wolfram Alpha
+// https://mathworld.wolfram.com/GearCurve.html
 
 const gcurve = [];
 let a = 1;

@@ -2,7 +2,7 @@
 // https://help.tc2000.com/m/69445/l/755460-hyperbolic-functions-table
 
 class Gear {
-  constructor(_px, _py, _a, _b, _spokes, _sc, _rot) {
+  constructor(_px, _py, _a, _b, _spokes, _sc, _rot, _col) {
     this.px = _px;
     this.py = _py;
     this.a = _a;
@@ -11,7 +11,7 @@ class Gear {
     this.sc = _sc;
     this.points = [];
     this.rot = _rot;
-    this.h = [];
+   this.col = color(random(200, 255), 100, random(200,255));
   }
 
   hyperbolicTan(theta) {

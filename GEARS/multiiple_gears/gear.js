@@ -7,8 +7,8 @@ class Gear {
   constructor(_px, _py, _a, _b, _spokes, _sc, _col) {
     this.px = _px;
     this.py = _py;
-    this.a = random(2);
-    this.b = random(10);
+    this.a = _a;
+    this.b = _b;
     this.sp = _spokes; // number of spokes
     this.sc = _sc; // scale
     this.points = [];
@@ -44,7 +44,7 @@ class Gear {
     push();
     noFill();
     translate(this.px, this.py);
-    rotate(angle);
+    //rotate(angle);
     beginShape();
     for (let i = 0; i < this.points.length; i++) {
       strokeWeight(2);
@@ -54,6 +54,6 @@ class Gear {
     }
     endShape();
     pop();
-    this.points = [];
+    //this.points = [];
   }
 }

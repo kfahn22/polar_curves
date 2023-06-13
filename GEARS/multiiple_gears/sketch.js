@@ -4,29 +4,28 @@
 // https://mathworld.wolfram.com/GearCurve.html
 
 const knobs = [];
-let num = 1;
+const num = 2;
 let angle = 0;
+const spokes = 8; // number of spokes on the gears
+const scale = 0.1;
 
 function setup() {
   createCanvas(600, 600, WEBGL);
   angleMode(DEGREES);
   colorMode(RGB);
-  for (let i = 0; i < num; i++) {
-    knobs.push(
-      new Gears(width/2, height/2)
-    );
-  }
+ 
+    knobs.push(new Gears(width/2, height/2, spokes, scale));
+    //knobs.push(new Gears(70, 70, spokes, scale));
+  
   for (let i = 0; i < knobs.length; i++) {
     knobs[i].addGears();
   }
 }
 
 function draw() {
-  colorMode(RGB)
+  colorMode(RGB);
   background(0);
-  //rotateX(angle);
-  // rotateY(angle);
-  rotateZ(angle); // only use this if you want 2D rotating gear
+  rotateZ(angle);
   translate(-width / 2, -height / 2);
   for (let i = 0; i < knobs.length; i++) {
     // knobs[i].addGears();

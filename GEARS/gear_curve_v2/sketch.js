@@ -17,7 +17,7 @@ function setup() {
   angleMode(DEGREES);
   for (let i = 0; i < n; i++) {
     gcurve.push(
-      new Gear(width / 2, height / 2, a, b, spokes, sc + i * 10, 30, 3)
+      new Gear(width / 2, height / 2, random(2), random(10), spokes, sc + i * 10, 30, 3)
     );
   }
 }

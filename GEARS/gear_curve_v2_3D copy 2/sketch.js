@@ -20,7 +20,7 @@ function setup() {
   let z = -n;
   for (let i = 0; i < n; i++) {
     gcurve.push(
-      new Gear(width / 2, height / 2, z + 1 * i, a, b, spokes, sc - 3*i, 30)
+      new Gear(width / 2, height / 2, z + 1 * i, random(2), random(10), spokes, sc - 3*i, 30)
     );
   }
 }

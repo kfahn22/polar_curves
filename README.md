@@ -40,17 +40,6 @@ I am using the equation from [Wolfram Mathworld](https://mathworld.wolfram.com/O
 ![](assets/ophiuride1.jpg)
 [p5 sketch](https://editor.p5js.org/kfahn/sketches/TflYfJiF3)
 
-## Spiral
-
-I started with the equation for spherical spiral curve from [spiral](https://www.wolframalpha.com/input?i=spherical+spiral&assumption=%22ClashPrefs%22+-%3E+%7B%22SpaceCurve%22%2C+%22SphericalSpiral%22%7D).
-
-`a = 0.9`  
-`b = 10`
-`w = 50`  
-`const x = (rx * cos(w*theta)) / sqrt(a*a * theta*theta + b);`  
-`const y = (ry * sin(w*theta)) / sqrt(a*a * theta*theta + b);`  
-`const z = -(a * rz * theta ) / sqrt(a*a * theta*theta + b);`  
-![spiral](https://github.com/kfahn22/polar_curves/assets/65121394/f3adf73a-85b3-4c58-a49e-7ed970d51669)
 
 # Other Resources
 

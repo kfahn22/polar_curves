@@ -1,6 +1,6 @@
 # Polar Curves
 
-This repository contains a collection of p5.js sketches that utilize polar curves.
+This repository contains a collection of p5.js sketches that utilize polar curves.  [Shape Playground](https://github.com/kfahn22/shape_playground/blob/main/style.css)
 
 The base code is from Dan Shiffman's [Heart Curve Coding Challenge](https://thecodingtrain.com/challenges/134-heart-curve).
 
